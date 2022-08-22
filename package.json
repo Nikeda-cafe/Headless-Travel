@@ -41,11 +41,5 @@
     "node-sass": "^4.14.1",
     "postcss": "^8.4.4",
     "prettier": "^2.5.1"
-  },
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0",
-      "port": "80"
-    }
   }
 }

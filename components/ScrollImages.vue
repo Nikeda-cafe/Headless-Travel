@@ -8,19 +8,19 @@
         <img :src="item.img">
       </div> -->
       <div class="mt-4 dvs">
-        <img src="~/assets/img/l_1.jpg">
+        <img src="~/assets/1.png">
       </div>
       <div class="mt-4 dvs">
-        <img src="~/assets/img/l_2.jpg">
+        <img src="~/assets/2.png">
       </div>
       <div class="mt-4 dvs">
-        <img src="~/assets/img/l_3.jpg">
+        <img src="~/assets/3.png">
       </div>
       <div class="mt-4 dvs">
-        <img src="~/assets/img/l_4.jpg">
+        <img src="~/assets/4.png">
       </div>
       <div class="mt-4 dvs">
-        <img src="~/assets/img/l_5.jpg">
+        <img src="~/assets/5.png">
       </div>
     </div>
   </div>

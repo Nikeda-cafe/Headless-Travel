@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mt-5 mb-5 d text-center">
-      <nuxt-logo></nuxt-logo>
+      <!-- <nuxt-logo></nuxt-logo> -->
     </div>
     <nuxt />
   </div>

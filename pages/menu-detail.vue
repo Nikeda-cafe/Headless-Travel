@@ -19,6 +19,8 @@ export default {
     }
   },
   async asyncData({ query,$config,$axios }){
+    console.log($config)
+    console.log(query)
     const result = await $axios.$get(
       `${$config.apiUrl}/menu/${query.menuId}`,
       {

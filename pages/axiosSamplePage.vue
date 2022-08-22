@@ -1,15 +1,24 @@
 <template>
   <div>
+      <h1 class="text-center mb-3">記事を取得</h1>
       <p>{{res.body}}</p>
       <img :src="res.image.url" alt="">
       <!-- <li>{{menuItems[0].body}}</li> -->
-      <div class="input-group">
+      <div class="input-group w-3/4 m-auto">
         <div class="input-group-prepend">
           <span class="input-group-text">MenuId</span>
         </div>
         <input type="text" class="form-control" name="menu_id" v-model="menuId">
       </div>
-      <button style="margin-top:20px" type="button" class="btn btn-outline-success" @click="getAxios()">axios</button>
+      <div class=" text-center">
+        <button
+          type="button"
+          class="border-none px-2 py-1 rounded-md bg-green-200 m-auto mt-4 mb-4"
+          @click="getAxios()"
+        >
+          axios
+        </button>
+      </div>
 
   </div>
 </template>
@@ -51,19 +60,17 @@ export default {
         query: { menuId: this.menuId }
       });
     }
-  }
+  },
 
-  // async asyncData({ $config }) {
-  //   const menu = await axios.get(
-  //     `${$config.apiUrl}/menu?limit=3&filters=flag[equals]true`,
-  //     {
-  //       headers: {'X-API-KEY': $config.apiKey},
-  //     }
-  //   )
-  //   console.log(menu.data.contents);
-  //   return {
-  //     menuItems: menu.data.contents,
-  //   }
-  // },
+  async asyncData({ query,$config,$axios }){
+    const result = await $axios.$get(
+      `${$config.apiUrl}/menu/`,
+      {
+        headers: {'X-API-KEY': '691867be-4a35-4006-90c1-9b0856070900'},
+      }
+    )
+    return console.log(result)
+
+  }
 }
 </script>

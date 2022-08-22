@@ -44,8 +44,9 @@ export default {
     return {
       cardItems:data,
       hooperSettings: {
-        itemsToShow: 2,
-        centerMode: false,
+        itemsToShow: 1.5,
+        centerMode: true,
+        infiniteScroll: true,
         breakpoints: {
           800: {
             centerMode: false,
@@ -78,8 +79,8 @@ export default {
     height: auto;
   }
   .hooper-slide {
-    border: 5px solid lightgray;
-    border-radius: 15px;
+    // border: 5px solid lightgray;
+    // border-radius: 15px;
   }
   .hooper-pagination {
     bottom: -18px;

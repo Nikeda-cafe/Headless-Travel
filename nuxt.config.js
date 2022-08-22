@@ -62,9 +62,9 @@ export default {
   loading: { color: 'red' },
 
   publicRuntimeConfig: {
-    apiUrl: API_URL,
+    apiUrl: 'https://api-test-in.microcms.io/api/v1',
   },
   privateRuntimeConfig: {
-    apiKey: API_KEY,
+    apiKey: '691867be-4a35-4006-90c1-9b0856070900',
   }
 }
