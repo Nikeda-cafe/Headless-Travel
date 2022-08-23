@@ -19,7 +19,7 @@
 
       <!-- news card -->
       <div class="post__list text-center">
-        <ul class="flex justify-between flex-wrap w-10/12 m-auto">
+        <ul class="flex justify-between flex-wrap w-10/12 lg:w-full m-auto">
           <li v-for="(item,index) in posts.contents" :key="index" class="mb-4">
             <div class="overflow-hidden shadow-lg rounded-lg h-90 lg:w-72 md:w-80 cursor-pointer m-auto">
                 <a href="#" class="w-full block h-full">
