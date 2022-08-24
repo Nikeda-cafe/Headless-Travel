@@ -7,7 +7,7 @@
             </div>
             <input type="text" class="form-control" name="prefecture" v-model="prefecture">
             <select name="" id="">
-                <option v-for="(item,index) in area.data" value="item.id">{{item.name}}</option>
+                <option v-for="(item,index) in area.data" :value="item.id">{{item.name}}</option>
             </select>
         </div>
         <div class=" text-center">
