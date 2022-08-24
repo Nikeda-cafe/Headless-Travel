@@ -1,38 +1,25 @@
 <template>
-  <div class="lg:w-3/4 m-auto">
-      <h1 class="text-center mb-3">記事を取得</h1>
-      <div class="input-group w-3/4 m-auto">
-        <div class="input-group-prepend">
-          <span class="input-group-text">MenuId</span>
-        </div>
-        <input type="text" class="form-control" name="menu_id" v-model="menuId">
-      </div>
-      <div class=" text-center">
-        <button
-          type="button"
-          class="border-none px-2 py-1 rounded-md bg-green-200 m-auto mt-4 mb-4"
-          @click="getAxios()"
-        >
-          axios
-        </button>
-      </div>
+    <div class="lg:w-3/4 m-auto">
+        <Prefectures />
 
-      <!-- news card -->
-      <div class="post__list text-center">
-        <ul class="flex justify-between flex-wrap w-10/12 lg:w-full m-auto">
-            <NewsList
-                v-for="(item,index) in posts.contents"
-                :key="index" :url="item.thumbnail.url"
-                :body="item.body"
-                :title="item.title"
-            />
-        </ul>
-      </div>
-  </div>
+        <!-- news card -->
+        <div class="post__list text-center">
+            <ul class="flex justify-between flex-wrap w-10/12 lg:w-full m-auto">
+                <NewsList
+                    v-for="(item,index) in posts.contents"
+                    :key="index"
+                    :url="item.thumbnail.url"
+                    :body="item.body"
+                    :title="item.title"
+                />
+            </ul>
+        </div>
+    </div>
 </template>
 
 <script>
 import NewsList from '../components/NewsList.vue';
+import Prefectures from '../components/prefectures.vue';
 // import axios from 'axios'
 export default {
     data: function () {
@@ -59,7 +46,7 @@ export default {
             posts: result
         };
     },
-    components: { NewsList }
+    components: { NewsList, Prefectures }
 }
 </script>
 
