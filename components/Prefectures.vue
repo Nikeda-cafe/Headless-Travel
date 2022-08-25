@@ -5,30 +5,39 @@
             <div class="input-group-prepend">
             <span class="input-group-text">都道府県</span>
             </div>
-            <input type="text" class="form-control" name="prefecture" v-model="prefecture">
+            <select class="form-control" name="prefecture" v-model="prefecture" @change="getArea(prefecture)">
+                <option value="" v-for="(item,index) in prefectures" :key="index" :value="item.id">{{item.name}}</option>
+            </select>
             <select name="" id="">
-                <option v-for="(item,index) in area.data" :value="item.id">{{item.name}}</option>
+                <option v-for="(item,index) in area.data" :key="index" :value="item.id">{{item.name}}</option>
             </select>
         </div>
         <div class=" text-center">
+            <nuxt-link to="/">
             <button
                 type="button"
-                class="border-none px-2 py-1 rounded-md bg-green-200 m-auto mt-4 mb-4"
-                @click="getArea(prefecture)"
+                class="px-4 py-2 m-4 border-none bg-green-200 rounded-xl cursor-pointer shadow-md"
             >
+
             axios
             </button>
+            </nuxt-link>
+            <p>{{xxx}}</p>
         </div>
     </div>
 </template>
 
 <script>
+import prefectures from '@/assets/json/prefectures.json';
+import { Store } from 'vuex';
 export default {
     name: 'Prefectures',
     data : function(){
         return {
             area: [],
-            prefecture: 0
+            prefectures: prefectures,
+            prefecture: 0,
+            xxx : this.$store.state.message
         }
     },
     methods: {
@@ -38,5 +47,7 @@ export default {
             console.log(this.area);
         }
     },
+
+
 }
 </script>

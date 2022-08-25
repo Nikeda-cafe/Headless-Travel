@@ -39,6 +39,7 @@ export default {
     // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/vuetify', //  追加
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -60,7 +61,7 @@ export default {
     transpile: ['vue-flag-icon'],
     vendor: ['vue-awesome-swiper']
   },
-  loading: { color: 'red' },
+  loading: './components/Loading.vue',
 
   publicRuntimeConfig: {
     apiUrl: 'https://api-test-in.microcms.io/api/v1',

@@ -23,6 +23,6 @@ export default {
 
 <style lang="sass" scoped>
   #flag
-    text-align: center;
+    text-align: center
 </style>
 

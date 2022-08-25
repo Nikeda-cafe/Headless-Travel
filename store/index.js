@@ -4,7 +4,8 @@ import createPersistedState from 'vuex-persistedstate'
 
 export const state = () => ({
   message: 'count number',
-  counter: 0
+  counter: 0,
+  prefectures: {}
 })
 
 export const mutations = {
