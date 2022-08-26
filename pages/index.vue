@@ -5,7 +5,7 @@
     <p>{{now}}</p>
     <hr>
     <router-link to="/other">go to ohter</router-link>
-    <router-link to="/axiosSamplePage">go to axios</router-link>
+    <router-link to="/news">go to axios</router-link>
   </section>
   <!-- <Tutorial /> -->
 </template>

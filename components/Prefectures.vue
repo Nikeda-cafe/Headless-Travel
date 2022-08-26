@@ -17,10 +17,8 @@
             <button
                 type="button"
                 class="px-4 py-2 m-4 border-none bg-green-200 rounded-xl cursor-pointer shadow-md"
-            >
-
-            axios
-            </button>
+            >axios</button>
+            
             </nuxt-link>
             <p>{{xxx}}</p>
         </div>

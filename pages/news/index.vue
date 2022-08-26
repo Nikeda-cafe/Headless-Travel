@@ -12,6 +12,7 @@
                     :body="item.body"
                     :title="item.title"
                     :id="item.id"
+                    :area="item.area"
                 />
             </ul>
         </div>
@@ -19,8 +20,8 @@
 </template>
 
 <script>
-import NewsList from '../components/NewsList.vue';
-import Prefectures from '../components/prefectures.vue';
+import NewsList from '../../components/NewsList.vue';
+import Prefectures from '../../components/prefectures.vue';
 // import axios from 'axios'
 export default {
     data: function () {
