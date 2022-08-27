@@ -1,15 +1,20 @@
 <template lang="">
     <li class="mb-4">
-        <div class="overflow-hidden shadow-lg rounded-lg h-90 lg:w-72 md:w-80 cursor-pointer m-auto">
+        <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
                 <img alt="blog photo" :src="url" class="max-h-40 w-full object-cover"/>
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
-                    <p class="text-indigo-500 text-md font-medium"></p>
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
                         {{title}}
                     </p>
-                    <p class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(body)"></p>
-                    <span>{{area.name}}</span>
+                    <p class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(description)">
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center mt-4">
+                        <AreaTag :name="area.name" />
+                        <JenreTag v-for="(item,index) in jenre" :key="index">
+                            {{item.jenre_name}}
+                        </JenreTag>
+                    </div>
                 </div>
             </nuxt-link>
         </div>
@@ -17,6 +22,8 @@
 </template>
 
 <script>
+import AreaTag from '/components/AreaTag.vue';
+import JenreTag from '/components/JenreTag.vue';
 export default {
   name: 'NewsList',
   props: {
@@ -24,7 +31,7 @@ export default {
         type: String,
         required: true,
     },
-    body: {
+    description: {
         type: String,
         required: true,
     },
@@ -39,6 +46,10 @@ export default {
     area: {
         type: Object,
         required: true
+    },
+    jenre: {
+        type: Object,
+        required: true
     }
   },
   methods: {
@@ -47,6 +58,7 @@ export default {
       return trimBody
     }
   },
+  components: { AreaTag, JenreTag }
 }
 
 </script>

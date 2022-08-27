@@ -9,10 +9,11 @@
                     v-for="(item,index) in posts.contents"
                     :key="index"
                     :url="item.thumbnail.url"
-                    :body="item.body"
+                    :description="item.description"
                     :title="item.title"
                     :id="item.id"
                     :area="item.area"
+                    :jenre="item.jenre"
                 />
             </ul>
         </div>
