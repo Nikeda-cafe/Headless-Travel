@@ -10,10 +10,8 @@
                     <p class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(description)">
                     </p>
                     <div class="flex flex-wrap justify-starts items-center mt-4">
-                        <AreaTag :name="area.name" />
-                        <JenreTag v-for="(item,index) in jenre" :key="index">
-                            {{item.jenre_name}}
-                        </JenreTag>
+                        <TagIcon :bgColor="`bg-blue-100`">{{area.name}}</TagIcon>
+                        <TagIcon v-for="(item,index) in jenre">{{item.jenre_name}}</TagIcon>
                     </div>
                 </div>
             </nuxt-link>
@@ -22,8 +20,7 @@
 </template>
 
 <script>
-import AreaTag from '/components/AreaTag.vue';
-import JenreTag from '/components/JenreTag.vue';
+import TagIcon from '/components/TagIcon.vue';
 export default {
   name: 'NewsList',
   props: {
@@ -58,7 +55,7 @@ export default {
       return trimBody
     }
   },
-  components: { AreaTag, JenreTag }
+  components: { TagIcon }
 }
 
 </script>

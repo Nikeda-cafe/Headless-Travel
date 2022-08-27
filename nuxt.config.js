@@ -40,6 +40,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/vuetify', //  追加
+    '@nuxtjs/date-fns',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
