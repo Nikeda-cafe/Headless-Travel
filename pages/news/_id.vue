@@ -5,7 +5,11 @@
                 <img class="max-w-full h-auto" :src="res.thumbnail.url" alt="">
             </section>
             <section class="s__title my-8">
-                <p class="mb-2">公開日：{{$dateFns.format(new Date(res.publishedAt), 'yyyy/MM/dd')}}</p>
+                <div class="flex flex-wrap justify-starts items-center mt-4">
+                    <TagIcon :bgColor="`bg-blue-100`">{{res.area.name}}</TagIcon>
+                    <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
+                </div>
+                <p class="my-2">公開日：{{$dateFns.format(new Date(res.publishedAt), 'yyyy/MM/dd')}}</p>
                 <h1 class="text-4xl">{{res.title}}</h1>
             </section>
 
@@ -14,7 +18,7 @@
                     <p class="text-gray-500 text-2xl">ライター</p>
                     <div class="flex items-center my-4">
                         <a href="#" class="block relative">
-                            <img alt="profil" src="@/assets/1.png" class="mx-auto object-cover rounded-full h-20 w-20 "/>
+                            <img alt="profil" src="@/assets/midori.jpg" class="mx-auto object-cover rounded-full h-20 w-20 "/>
                         </a>
                         <div class="flex flex-col ml-2 justify-between">
                             <span class="font-semibold text-indigo-500 text-lg">
