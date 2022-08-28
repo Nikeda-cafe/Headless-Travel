@@ -39,7 +39,6 @@ export default {
     // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/vuetify', //  追加
     '@nuxtjs/date-fns',
   ],
 
@@ -47,7 +46,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt',
     'nuxt-lazy-load'
   ],
 

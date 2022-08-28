@@ -1,6 +1,6 @@
 <template lang="">
     <li class="mb-4">
-        <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+        <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
                 <img alt="blog photo" :src="url" class="max-h-40 w-full object-cover"/>
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
@@ -46,7 +46,6 @@ export default {
     },
     jenre: {
         type: Object,
-        required: true
     }
   },
   methods: {
@@ -59,3 +58,9 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+    li{
+        width:30%;
+    }
+</style>

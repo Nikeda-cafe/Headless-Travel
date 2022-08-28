@@ -14,7 +14,7 @@ export const mutations = {
     })
   },
 
-  setPage: function(state,p){
+  set_page: function(state,p){
     state.page = p
   },
   remove: function(state,obj){
