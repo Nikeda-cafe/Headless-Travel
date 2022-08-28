@@ -1,7 +1,7 @@
 <template lang="">
     <div class="bg-white dark:bg-gray-800 w-full shadow-lg mx-auto rounded-xl p-4">
         <p class="text-gray-500 text-2xl">ライター</p>
-        <div class="flex items-center my-4">
+        <div class="flex items-center my-4 flex-wrap">
             <a href="#" class="block relative">
                 <img alt="profil" src="@/assets/avater.png" class="mx-auto object-cover rounded-full h-20 w-20 "/>
             </a>
@@ -41,6 +41,15 @@ export default {
     .s__writer{
         &__sns--button{
             max-width: 32%;
+        }
+    }
+    @media screen and (max-width: 480px){
+        .s__writer{
+            &__sns--button{
+                max-width: 100%;
+                margin-top: 3vw;
+                margin-left: 0;
+            }
         }
     }
 </style>

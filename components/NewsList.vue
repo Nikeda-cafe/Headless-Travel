@@ -1,5 +1,5 @@
 <template lang="">
-    <li class="mb-4">
+    <li class="mb-8">
         <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
                 <img alt="blog photo" :src="url" class="max-h-40 w-full object-cover"/>
@@ -60,7 +60,9 @@ export default {
 </script>
 
 <style lang="scss">
-    li{
-        width:30%;
+    @media screen and (min-width: 640px){
+        li{
+            width:30%;
+        }
     }
 </style>

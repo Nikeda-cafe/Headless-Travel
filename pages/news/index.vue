@@ -1,7 +1,6 @@
 <template>
     <div class="lg:w-3/4 m-auto">
-        <Prefectures />
-
+        <PageTitle englishText="CONTENTS" japaneseText="コンテンツ一覧" />
         <!-- news card -->
         <div class="post__list text-center">
             <ul class="flex justify-between flex-wrap w-10/12 lg:w-full m-auto">
@@ -23,6 +22,7 @@
 <script>
 import NewsList from '../../components/NewsList.vue';
 import Prefectures from '../../components/prefectures.vue';
+import PageTitle from '../../components/PageTitle.vue';
 // import axios from 'axios'
 export default {
     data: function () {
@@ -50,7 +50,7 @@ export default {
             posts: result
         };
     },
-    components: { NewsList, Prefectures }
+    components: { NewsList, Prefectures, PageTitle }
 }
 </script>
 

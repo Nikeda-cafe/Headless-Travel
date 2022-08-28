@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="lg:w-7/12 m-auto">
+    <div class="w-11/12 lg:w-7/12 m-auto lg:mt-24">
         <article class="">
             <section class="s__thumbnail">
                 <img class="max-w-full h-auto rounded-md" :src="res.thumbnail.url" alt="">
@@ -10,10 +10,10 @@
                     <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
                 </div>
                 <p class="my-2">公開日：{{$dateFns.format(new Date(res.publishedAt), 'yyyy/MM/dd')}}</p>
-                <h1 class="text-4xl">{{res.title}}</h1>
+                <h1 class="lg:text-4xl text-2xl">{{res.title}}</h1>
             </section>
 
-            <section class="s__writer mb-20">
+            <section class="s__writer lg:mb-20 mb-8">
                 <Writer />
             </section>
 
@@ -74,6 +74,33 @@ export default {
         }
         img{
             border-radius:8px;
+        }
+        h3{
+            font-size: 24px;
+            font-weight: 600;
+            border-bottom: 1px solid gray;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            padding-left: 10px;
+            border-left: 5px solid #333;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        @media screen and (max-width: 480px){
+            iframe{
+                width: 100%;
+                margin: 0 auto;
+            }
+            p{
+                font-size: 4.5vw;
+            }
+            h2{
+                font-size: 6vw;
+                margin-top: 8vw;
+                margin-bottom: 4vw;
+            }
         }
     }
 </style>
