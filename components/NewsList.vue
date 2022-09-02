@@ -4,7 +4,7 @@
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
                 <img alt="blog photo" :src="url" class="max-h-40 w-full object-cover"/>
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
-                    <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
+                    <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500">
                         {{title}}
                     </p>
                     <p class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(description)">
