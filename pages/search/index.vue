@@ -1,12 +1,17 @@
 <template lang="">
     <div>
+        <PageTitle englishText="SEARCH" japaneseText="カテゴリから探す" />
         <div class="w-11/12 m-auto">
             <h2 class="serch__area font-bold text-xl border-b border-gray-400 mb-4 pb-2">エリアから探す</h2>
             <ul class="serch__area--flex md:flex md:flex-wrap md:justify-between">
-                <li v-for="(item,index) in areaList" :key="item.order" class="w-full mb-2 md:mb-10 md:w-1/2">
+                <li v-for="(item,index) in areaList" :key="item.order" class="w-full mb-4 md:mb-10 md:w-1/2 rounded-md">
                     <nuxt-link to="#">
                         <div v-if="item.thumbnail" class="relative w-full h-28 md:h-60 hover:opacity-80">
-                            <img :src="item.thumbnail.url" alt="" srcset="" class="h-28 md:h-60 object-cover w-full">
+                            <img
+                                :src="item.thumbnail.url"
+                                alt="" srcset=""
+                                class="h-28 md:h-60 object-cover w-full rounded-md shadow-xl"
+                            />
                             <span class="absolute text-xl text-gray-100 font-bold top-1/4 left-2">{{item.name}}</span>
                         </div>
                     </nuxt-link>
@@ -17,16 +22,21 @@
 </template>
 
 <script>
-   export default {
+    import PageTitle from '/components/PageTitle.vue';
+    export default {
         data() {
             return {
                 jenreList: {},
-                areaList: {}
+                areaList: {},
             }
         },
 
         methods: {
 
+        },
+
+        fetch ({store}) {
+            store.commit('resetMenu')
         },
 
         async asyncData({params,$config,$axios}) {
@@ -42,6 +52,7 @@
                 areaList: area.contents
             };
         },
+        components: {PageTitle}
    }
 </script>
 

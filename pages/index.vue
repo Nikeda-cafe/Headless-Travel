@@ -29,7 +29,10 @@ export default {
       // console.log(this.val);
       this.now = this.val
     }
-  }
+  },
+    fetch ({store}) {
+        store.commit('resetMenu')
+    },
 }
 </script>
 

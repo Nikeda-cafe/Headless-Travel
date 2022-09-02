@@ -41,6 +41,9 @@ export default {
             });
         },
     },
+    fetch ({store}) {
+        store.commit('resetMenu')
+    },
     async asyncData({ query, $config, $axios }) {
         const result = await $axios.$get(`${$config.apiUrl}/news/`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },

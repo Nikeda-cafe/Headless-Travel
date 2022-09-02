@@ -1,22 +1,17 @@
-import { create } from 'core-js/core/object';
-import Vuex from 'vuex';
-import createPersistedState from 'vuex-persistedstate'
+import Vuex from 'vuex'
 
-export const state = () => ({
-  message: 'count number',
-  counter: 0,
+const store = () => new Vuex.Store({
+  state: {
+    isMenuActive: false
+  },
+  mutations: {
+    toggleMenu (state) {
+      state.isMenuActive = !state.isMenuActive
+    },
+    resetMenu (state) {
+      state.isMenuActive = false
+    }
+  }
 })
 
-export const mutations = {
-  doit(state){
-    var n = Math.floor(Math.random() * 10);
-    state.counter += n;
-    state.message = `add ${n}.`;
-  },
-  reset(state){
-    state.counter = 0;
-    state.message = 'reset now'
-  }
-}
-
-// Vue.component('vuex-persistedstate', createPersistedState)
+export default store
