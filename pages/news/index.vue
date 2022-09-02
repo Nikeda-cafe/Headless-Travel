@@ -3,7 +3,7 @@
         <PageTitle englishText="CONTENTS" japaneseText="コンテンツ一覧" />
         <!-- news card -->
         <div class="post__list text-center">
-            <ul class="flex justify-between flex-wrap w-10/12 lg:w-full m-auto">
+            <ul class="flex justify-between flex-wrap w-11/12 lg:w-full m-auto">
                 <NewsList
                     v-for="(item,index) in posts.contents"
                     :key="index"

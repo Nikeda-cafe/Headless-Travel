@@ -31,8 +31,8 @@
             >
                 <ul class="md:flex md:justify-end md:items-end">
                     <li class="w-full md:w-auto md:ml-5">
-                        <a href="/concept/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full"
-                        >コンセプト</a>
+                        <nuxt-link to="/search/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full"
+                        >カテゴリから探す</nuxt-link>
                     </li>
                     <li class="w-full md:w-auto md:ml-5">
                         <a href="/shop/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full"

@@ -10,9 +10,9 @@
                     </h2>
                     <ul>
                         <li class="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                            <a href="#">
-                                Concept
-                            </a>
+                            <nuxt-link to="/search/">
+                                Search
+                            </nuxt-link>
                         </li>
                         <li class="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
                             <a href="#">
