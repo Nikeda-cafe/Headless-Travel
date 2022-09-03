@@ -1,6 +1,6 @@
 <template>
     <div class="lg:w-3/4 m-auto">
-        <PageTitle englishText="CONTENTS" japaneseText="コンテンツ一覧" />
+        <PageTitle englishText="CONTENTS" :japaneseText="japaneseText" />
         <!-- news card -->
         <div class="post__list text-center">
             <ul class="flex justify-between flex-wrap w-11/12 lg:w-full m-auto">
@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import NewsList from '../../components/NewsList.vue';
-import PageTitle from '../../components/PageTitle.vue';
+import NewsList from '../../../components/NewsList.vue';
+import PageTitle from '../../../components/PageTitle.vue';
 // import axios from 'axios'
 export default {
     data: function () {
@@ -29,7 +29,7 @@ export default {
             // posts: {},
             id: this.$route.params.id,
             menuId: "",
-            src: ""
+            src: "",
         };
     },
     methods: {
@@ -38,13 +38,19 @@ export default {
     fetch ({store}) {
         store.commit('resetMenu')
     },
-    async asyncData({ query, $config, $axios }) {
-        const result = await $axios.$get(`${$config.apiUrl}/news/`, {
+    async asyncData({ params, $config, $axios }) {
+        const result = await $axios.$get(`${$config.apiUrl}/news?filters=jenre[contains]${params.id}`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
-        console.log(result);
+
+        const jenreName = await $axios.$get(`${$config.apiUrl}/jenre?filters=id[equals]${params.id}&fields=jenre_name`, {
+            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+        });
+        console.log(jenreName);
         return {
-            posts: result
+            posts: result,
+            jenre: jenreName.contents[0].jenre_name,
+            japaneseText: `${jenreName.contents[0].jenre_name}：コンテンツ一覧`
         };
     },
     components: { NewsList,  PageTitle }

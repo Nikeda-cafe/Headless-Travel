@@ -45,7 +45,7 @@ export default {
         required: true
     },
     jenre: {
-        type: Object,
+        type: Array,
     }
   },
   methods: {

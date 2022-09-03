@@ -10,6 +10,9 @@
                     >MdN Cafe
                     </nuxt-link>
                 </h1>
+                <div class="texr-black md:hidden">
+
+                </div>
                 <div class="text-black md:hidden">
                     <button class="focus:outline-none" @click="$store.commit('toggleMenu')">
                         <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
