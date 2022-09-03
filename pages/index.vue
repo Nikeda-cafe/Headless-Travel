@@ -1,44 +1,104 @@
 <template>
-  <section>
-    <button @click="returnNow()">start</button>
-    <h1>{{title}}</h1>
-    <p>{{now}}</p>
-    <hr>
-    <router-link to="/other">go to ohter</router-link>
-    <router-link to="/news">go to axios</router-link>
-  </section>
-  <!-- <Tutorial /> -->
+  <div class="">
+    <section class="pickup__contents mb-8">
+        <div class="w-11/12 m-auto">
+            <h2 class="text-black font-bold text-3xl mb-2">PICK UP</h2>
+            <p class="text-gray-600 text-lg font-bold mb-4">ピックアップ記事</p>
+            <ul class="flex justify-between">
+                <NewsList
+                    v-for="(item,index) in postList"
+                    :key="index"
+                    :url="item.thumbnail.url"
+                    :title="item.title"
+                    :id="item.id"
+                    :area="item.area"
+                    :jenre="item.jenre"
+                />
+            </ul>
+        </div>
+    </section>
+    <section class="famous__area mb-8 bg-gray-100 py-6">
+        <div class="w-11/12 m-auto">
+            <h2 class="text-black font-bold text-3xl mb-2">FAMOUS AREA</h2>
+            <p class="text-gray-600 text-lg font-bold mb-4">人気のエリア</p>
+            <ul>
+                <li v-for="(item,index) in famousArea" class="mb-4">
+                    <CategoryCard
+                        :key="index"
+                        :id="item.id"
+                        :name="item.name"
+                        :thumbnail="item.thumbnail"
+                        category="area"
+                    />
+                </li>
+            </ul>
+            <div class="text-right mr-4 my-5">
+                <button class="text-lg font-bold mt-4 pb-2 border-b-2 border-black ">
+                    <nuxt-link to="/search/">エリア・ジャンルをすべて見る</nuxt-link>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="famous__area mb-8 py-6">
+        <div class="w-11/12 m-auto">
+            <h2 class="text-black font-bold text-3xl mb-2">FAMOUS JENRE</h2>
+            <p class="text-gray-600 text-lg font-bold mb-4">人気のジャンル</p>
+            <ul>
+                <li v-for="(item,index) in famousJenre" class="mb-4">
+                    <CategoryCard
+                        :key="index"
+                        :id="item.id"
+                        :name="item.jenre_name"
+                        :thumbnail="item.thumbnail"
+                        category="area"
+                    />
+                </li>
+            </ul>
+            <div class="text-right mr-4 my-5">
+                <button class="text-lg font-bold mt-4 pb-2 border-b-2 border-black ">
+                    <nuxt-link to="/search/">エリア・ジャンルをすべて見る</nuxt-link>
+                </button>
+            </div>
+        </div>
+    </section>
+  </div>
 </template>
 
 <script>
+import CategoryCard from '../components/CategoryCard.vue';
+import NewsList from '../components/NewsList.vue';
 export default {
-  name: 'IndexPage',
-  data: () => {
-    return {
-      title: 'sssss',
-      now: '',
-      val:''
-    }
-  },
-  methods: {
-    returnNow: function(){
-      setInterval(this.timer,1000)
+    name: "IndexPage",
+    data: () => {
+        return {};
     },
-    timer: function(){
-      this.val++;
-      // console.log(this.val);
-      this.now = this.val
-    }
-  },
-    fetch ({store}) {
-        store.commit('resetMenu')
+    methods: {},
+    fetch({ store }) {
+        store.commit("resetMenu");
     },
+    async asyncData({ params, $config, $axios }) {
+        const areaResult = await $axios.$get(`${$config.apiUrl}/area?filters=famous_flag[equals]true&fields=id,name,thumbnail&orders=order`, {
+            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+        });
+
+        const jenreResult = await $axios.$get(`${$config.apiUrl}/jenre?filters=famous_flag[equals]true&fields=id,jenre_name,thumbnail&orders=order`, {
+            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+        });
+
+        const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&fields=id,title,thumbnail,area,jenre,createdAt&limit=1`, {
+            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+        });
+        return {
+            famousArea: areaResult.contents,
+            famousJenre: jenreResult.contents,
+            postList: pickupResult.contents
+        };
+    },
+    components: { CategoryCard, NewsList }
 }
 </script>
 
 
 <style lang="scss" scoped >
-  section{
-    text-align: center;
-  }
+
 </style>

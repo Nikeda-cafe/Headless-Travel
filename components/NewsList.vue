@@ -7,7 +7,7 @@
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500">
                         {{title}}
                     </p>
-                    <p class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(description)">
+                    <p v-if="description" class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(description)">
                     </p>
                     <div class="flex flex-wrap justify-starts items-center mt-4">
                         <TagIcon :bgColor="`bg-blue-100`">{{area.name}}</TagIcon>
@@ -30,7 +30,6 @@ export default {
     },
     description: {
         type: String,
-        required: true,
     },
     title: {
         type: String,
