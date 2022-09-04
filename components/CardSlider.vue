@@ -47,6 +47,7 @@ export default {
         itemsToShow: 1.5,
         centerMode: true,
         infiniteScroll: true,
+        autoPlay: true,
         breakpoints: {
           800: {
             centerMode: false,

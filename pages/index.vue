@@ -4,17 +4,18 @@
         <div class="w-11/12 m-auto">
             <h2 class="text-black font-bold text-3xl mb-2">PICK UP</h2>
             <p class="text-gray-600 text-lg font-bold mb-4">ピックアップ記事</p>
-            <ul class="flex justify-between">
-                <NewsList
-                    v-for="(item,index) in postList"
-                    :key="index"
-                    :url="item.thumbnail.url"
-                    :title="item.title"
-                    :id="item.id"
-                    :area="item.area"
-                    :jenre="item.jenre"
-                />
-            </ul>
+            <hooper :settings="hooperSettings" class="hooper-outer">
+                <slide class="card-item border-8 border-white" v-for="(item,index) in postList" :key="index">
+                    <NewsList
+                        :url="item.thumbnail.url"
+                        :title="item.title"
+                        :id="item.id"
+                        :area="item.area"
+                        :jenre="item.jenre"
+                    />
+                </slide>
+                <hooper-pagination slot="hooper-addons"></hooper-pagination>
+            </hooper>
         </div>
     </section>
     <section class="famous__area mb-8 bg-gray-100 py-6">
@@ -67,10 +68,31 @@
 <script>
 import CategoryCard from '../components/CategoryCard.vue';
 import NewsList from '../components/NewsList.vue';
+import { Hooper,Slide,Pagination as HooperPagination,Navigation as HooperNavigation} from 'hooper'
+import 'hooper/dist/hooper.css'
 export default {
     name: "IndexPage",
     data: () => {
-        return {};
+        return {
+            hooperSettings: {
+                itemsToShow: 1.5,
+                centerMode: true,
+                infiniteScroll: true,
+                autoPlay: true,
+                playSpeed: 5000,
+                mouseDrag: false,
+                breakpoints: {
+                800: {
+                    centerMode: false,
+                    itemsToShow: 3
+                },
+                1000: {
+                    itemsToShow: 3.5,
+                    pagination: 'fraction'
+                }
+                }
+            }
+        };
     },
     methods: {},
     fetch({ store }) {
@@ -85,7 +107,7 @@ export default {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 
-        const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&fields=id,title,thumbnail,area,jenre,createdAt&limit=1`, {
+        const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&fields=id,title,thumbnail,area,jenre,createdAt&limit=6`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
         return {
@@ -94,11 +116,23 @@ export default {
             postList: pickupResult.contents
         };
     },
-    components: { CategoryCard, NewsList }
+    components: { CategoryCard, NewsList,  Hooper,
+    Slide,
+    HooperPagination,
+    HooperNavigation}
 }
 </script>
 
 
-<style lang="scss" scoped >
+<style lang="scss">
+    .hooper{
+        height: 100%;
+    }
+    .hooper-indicator{
+        background-color: lightgray !important;
+    }
+    .hooper-indicator.is-active{
+        background-color: lightblue !important;
+    }
 
 </style>

@@ -2,9 +2,9 @@
     <li class="mb-8 news__nav--li">
         <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
-                <img alt="blog photo" :src="url" class="max-h-40 w-full object-cover"/>
+                <img alt="blog photo" :src="url" class="max-h-40 w-full object-cover h-48"/>
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
-                    <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500">
+                    <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500 h-28">
                         {{title}}
                     </p>
                     <p v-if="description" class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(description)">
@@ -60,8 +60,8 @@ export default {
 
 <style lang="scss">
     @media screen and (min-width: 640px){
-        .news__nav--li{
-            width:30%;
-        }
+        // .news__nav--li{
+        //     width:30%;
+        // }
     }
 </style>
