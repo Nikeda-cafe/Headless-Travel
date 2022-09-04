@@ -1,86 +1,98 @@
 <template>
-  <div class="">
-    <section class="mv">
-        <div class="mv__wrapper relative">
-            <img src="~/assets/main.jpeg" alt="" class="w-full object-cover h-auto">
-        </div>
-    </section>
+    <div class="">
+        <section class="mv">
+            <div class="mv__wrapper relative">
+                <img src="~/assets/main.jpeg" alt="" class="w-full object-cover h-auto">
+            </div>
+        </section>
 
-    <section class="bg-gray-100 py-6 mb-8">
-        <div class="w-11/12 m-auto">
-            <h2 class="text-black font-bold text-3xl mb-2">CONCEPT</h2>
-            <p class="text-gray-600 text-lg font-bold mb-4">コンセプト</p>
-            <div class="p-5 bg-white rounded-lg shadow-lg">
-                <p class="mb-4 text-xl">旅をテーマに世界遺産や世界の歴史、世界中の文化やグルメについての情報をお知らせする情報メディア</p>
-                <p class="text-gray-500">※このサイトは1エンジニアのポートフォリオサイトであり、商用目的のサイトではありません。</p>
+        <section class="bg-gray-100 py-6 mb-8">
+            <div class="w-11/12 m-auto">
+                <IndexPageTitle eng="CONCEPT" jap="コンセプト" />
+                <div class="p-5 bg-white rounded-lg shadow-lg">
+                    <p class="mb-4 text-xl">旅をテーマに世界遺産や世界の歴史、世界中の文化やグルメについての情報をお知らせする情報メディア</p>
+                    <p class="text-gray-500">※当サイトは1エンジニアのポートフォリオサイトであり、商用目的のサイトではありません。</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="pickup__contents mb-8">
-        <div class="w-11/12 m-auto">
-            <h2 class="text-black font-bold text-3xl mb-2">PICK UP</h2>
-            <p class="text-gray-600 text-lg font-bold mb-4">ピックアップ記事</p>
-            <hooper :settings="hooperSettings" class="hooper-outer">
-                <slide class="card-item border-8 border-white" v-for="(item,index) in postList" :key="index">
-                    <NewsList
-                        :url="item.thumbnail.url"
-                        :title="item.title"
-                        :id="item.id"
-                        :area="item.area"
-                        :jenre="item.jenre"
-                        :publishedAt="item.publishedAt"
-                    />
-                </slide>
-                <hooper-pagination slot="hooper-addons"></hooper-pagination>
-            </hooper>
-        </div>
-    </section>
-    <section class="famous__area mb-8 bg-gray-100 py-6">
-        <div class="w-11/12 m-auto">
-            <h2 class="text-black font-bold text-3xl mb-2">FAMOUS AREA</h2>
-            <p class="text-gray-600 text-lg font-bold mb-4">人気のエリア</p>
-            <ul>
-                <li v-for="(item,index) in famousArea" class="mb-4">
-                    <CategoryCard
-                        :key="index"
-                        :id="item.id"
-                        :name="item.name"
-                        :thumbnail="item.thumbnail"
-                        category="area"
-                    />
-                </li>
-            </ul>
-            <div class="text-right mr-4 my-5">
-                <button class="text-lg font-bold mt-4 pb-2 border-b-2 border-black ">
-                    <nuxt-link to="/search/">エリア・ジャンルをすべて見る</nuxt-link>
-                </button>
+        <section class="pickup__contents mb-8">
+            <div class="w-11/12 m-auto">
+                <IndexPageTitle eng="PICK UP" jap="ピックアップ記事" />
+                <hooper :settings="hooperSettings" class="hooper-outer">
+                    <slide class="card-item border-8 border-white" v-for="(item,index) in postList" :key="index">
+                        <NewsList
+                            :url="item.thumbnail.url"
+                            :title="item.title"
+                            :id="item.id"
+                            :area="item.area"
+                            :jenre="item.jenre"
+                            :publishedAt="item.publishedAt"
+                            :imgHeight="`h-48`"
+                            :titleHeight="`h-28`"
+                        />
+                    </slide>
+                    <hooper-pagination slot="hooper-addons"></hooper-pagination>
+                </hooper>
             </div>
-        </div>
-    </section>
-    <section class="famous__area mb-8 py-6">
-        <div class="w-11/12 m-auto">
-            <h2 class="text-black font-bold text-3xl mb-2">FAMOUS JENRE</h2>
-            <p class="text-gray-600 text-lg font-bold mb-4">人気のジャンル</p>
-            <ul>
-                <li v-for="(item,index) in famousJenre" class="mb-4">
-                    <CategoryCard
-                        :key="index"
-                        :id="item.id"
-                        :name="item.jenre_name"
-                        :thumbnail="item.thumbnail"
-                        category="area"
-                    />
-                </li>
-            </ul>
-            <div class="text-right mr-4 my-5">
-                <button class="text-lg font-bold mt-4 pb-2 border-b-2 border-black ">
-                    <nuxt-link to="/search/">エリア・ジャンルをすべて見る</nuxt-link>
-                </button>
+        </section>
+        <section class="famous__area mb-8 bg-gray-100 py-6">
+            <div class="w-11/12 m-auto">
+                <IndexPageTitle eng="FAMOUS AREA" jap="人気のエリア" />
+                <ul>
+                    <li v-for="(item,index) in famousArea" class="mb-4">
+                        <CategoryCard
+                            :key="index"
+                            :id="item.id"
+                            :name="item.name"
+                            :thumbnail="item.thumbnail"
+                            category="area"
+                        />
+                    </li>
+                </ul>
+                <div class="text-right mr-4 my-5">
+                    <button class="text-lg font-bold mt-4 pb-2 border-b-2 border-black ">
+                        <nuxt-link to="/search/">エリア・ジャンルをすべて見る</nuxt-link>
+                    </button>
+                </div>
             </div>
-        </div>
-    </section>
-  </div>
+        </section>
+        <section class="famous__area mb-8 py-6">
+            <div class="w-11/12 m-auto">
+                <IndexPageTitle eng="FAMOUS JENRE" jap="人気のジャンル" />
+                <ul>
+                    <li v-for="(item,index) in famousJenre" class="mb-4">
+                        <CategoryCard
+                            :key="index"
+                            :id="item.id"
+                            :name="item.jenre_name"
+                            :thumbnail="item.thumbnail"
+                            category="jenre"
+                        />
+                    </li>
+                </ul>
+                <div class="text-right mr-4 my-5">
+                    <button class="text-lg font-bold mt-4 pb-2 border-b-2 border-black ">
+                        <nuxt-link to="/search/">エリア・ジャンルをすべて見る</nuxt-link>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact__section py-6 bg-gray-100">
+            <div class="w-11/12 m-auto ">
+                <IndexPageTitle eng="CONTACT" jap="お問い合わせ" />
+                <p class="text-xl">制作者への技術的な問い合わせやコンテンツ内容などの各種お問い合わせはこちらから。</p>
+                <div class="text-left">
+                    <nuxt-link to="/contact/">
+                        <button class="font-bold text-lg text-gray-800 border-none px-8 py-6 rounded-lg shadow-lg bg-blue-100 my-8 ml-8">
+                            お問い合わせする
+                        </button>
+                    </nuxt-link>
+                </div>
+            </div>
+        </section>
+    </div>
 </template>
 
 <script>
@@ -88,9 +100,10 @@ import CategoryCard from '../components/CategoryCard.vue';
 import NewsList from '../components/NewsList.vue';
 import { Hooper,Slide,Pagination as HooperPagination,Navigation as HooperNavigation} from 'hooper'
 import 'hooper/dist/hooper.css'
+import IndexPageTitle from '../components/IndexPageTitle.vue';
 export default {
     name: "IndexPage",
-    data: () => {
+    data: function() {
         return {
             hooperSettings: {
                 itemsToShow: 1.5,
@@ -134,10 +147,7 @@ export default {
             postList: pickupResult.contents
         };
     },
-    components: { CategoryCard, NewsList,  Hooper,
-    Slide,
-    HooperPagination,
-    HooperNavigation}
+    components: { CategoryCard, NewsList, Hooper, Slide, HooperPagination, HooperNavigation, IndexPageTitle }
 }
 </script>
 

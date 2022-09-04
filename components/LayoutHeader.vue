@@ -6,8 +6,8 @@
                 <h1>
                     <nuxt-link
                         to="/"
-                        class="text-black text-sm lg:text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap"
-                    >MdN Cafe
+                        class="text-black text-lg lg:text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap"
+                    >Headless Travel
                     </nuxt-link>
                 </h1>
             </div>
@@ -49,8 +49,8 @@
                                 >カテゴリ一覧</nuxt-link>
                             </li>
                             <li class="w-full md:w-auto md:ml-5">
-                                <a href="/menu/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full"
-                                >メニュー</a>
+                                <nuxt-link to="/contact/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full"
+                                >お問い合わせ</nuxt-link>
                             </li>
                             <li class="w-full md:w-auto md:ml-5">
                                 <a href="/information/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full"

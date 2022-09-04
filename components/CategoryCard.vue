@@ -12,31 +12,31 @@
 </template>
 
 <script>
-    export default {
-        name:'CategoryCard',
-        props: {
-            id: {
-                type: String,
-                required: true
-            },
-            name:{
-                type: String,
-                required: true
-            },
-            thumbnail: {
-                type: Object,
-                required: true
-            },
-            category: {
-                type: String,
-                required: true
-            }
+export default {
+    name:'CategoryCard',
+    props: {
+        id: {
+            type: String,
+            required: true
         },
-        data() {
-            return {
-                to: `/news/${this.category}/${this.id}/`
-            }
+        name:{
+            type: String,
+            required: true
         },
-    }
+        thumbnail: {
+            type: Object,
+            required: true
+        },
+        category: {
+            type: String,
+            required: true
+        }
+    },
+    data() {
+        return {
+            to: `/news/${this.category}/${this.id}/`
+        }
+    },
+}
 </script>
 
