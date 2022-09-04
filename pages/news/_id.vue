@@ -1,8 +1,8 @@
 <template lang="">
-    <div class="w-11/12 lg:w-7/12 m-auto mt-8 lg:mt-24">
+    <div class="w-11/12 lg:w-7/12 m-auto mt-8 mb-8 lg:mt-24">
         <article class="">
             <section class="s__thumbnail">
-                <img class="max-w-full h-auto rounded-md" :src="res.thumbnail.url" alt="">
+                <img class="max-w-full h-auto rounded-md" :src="`${res.thumbnail.url}?fm=webp`" alt="">
             </section>
             <section class="s__title my-8">
                 <div class="flex flex-wrap justify-starts items-center mt-4">
@@ -35,13 +35,6 @@
 <script>
 import Writer from '/components/Writer.vue';
 export default {
-    data: function(){
-        return {
-            id: '',
-            res: {}
-        }
-    },
-
     mounted() {
         this.id = this.$route.params.id
 
@@ -53,6 +46,11 @@ export default {
         return {
             res: result
         };
+    },
+    data: function(){
+        return {
+
+        }
     },
     components: { Writer }
 }

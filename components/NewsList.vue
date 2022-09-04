@@ -2,7 +2,7 @@
     <li class="mb-8 news__nav--li">
         <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
-                <img alt="blog photo" :src="url" class="max-h-40 w-full object-cover" :class="imgHeight" />
+                <img alt="blog photo" :src="src" class="max-h-40 w-full object-cover" :class="imgHeight" />
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500" :class="titleHeight" >
                         {{title}}
@@ -28,47 +28,52 @@
 <script>
 import TagIcon from '/components/TagIcon.vue';
 export default {
-  name: 'NewsList',
-  props: {
-    url: {
-        type: String,
-        required: true,
+    name: 'NewsList',
+    props: {
+        url: {
+            type: String,
+            required: true,
+        },
+        description: {
+            type: String,
+        },
+        title: {
+            type: String,
+            required: true
+        },
+        id: {
+            type: String,
+            required: true
+        },
+        area: {
+            type: Object,
+            required: true
+        },
+        jenre: {
+            type: Array,
+        },
+        publishedAt: {
+            type: String,
+        },
+        imgHeight: {
+            type: String
+        },
+        titleHeight: {
+            type: String
+        }
     },
-    description: {
-        type: String,
+    data: function(){
+        return{
+            src: `${this.url}?fm=webp`
+        }
     },
-    title: {
-        type: String,
-        required: true
+    methods: {
+        trimPostBody(body){
+        const trimBody = body.slice(0,50) + '...';
+        return trimBody
+        }
     },
-    id: {
-        type: String,
-        required: true
-    },
-    area: {
-        type: Object,
-        required: true
-    },
-    jenre: {
-        type: Array,
-    },
-    publishedAt: {
-        type: String,
-    },
-    imgHeight: {
-        type: String
-    },
-    titleHeight: {
-        type: String
-    }
-  },
-  methods: {
-    trimPostBody(body){
-      const trimBody = body.slice(0,50) + '...';
-      return trimBody
-    }
-  },
-  components: { TagIcon }
+    components: { TagIcon }
 }
 
 </script>

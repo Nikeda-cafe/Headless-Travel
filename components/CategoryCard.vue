@@ -2,7 +2,7 @@
    <nuxt-link :to="to">
         <div v-if="thumbnail" class="relative w-full h-28 md:h-60 hover:opacity-80">
             <img
-                :src="thumbnail.url"
+                :src="src"
                 alt="" srcset=""
                 class="h-28 md:h-60 object-cover w-full rounded-md shadow-xl"
             />
@@ -34,7 +34,8 @@ export default {
     },
     data() {
         return {
-            to: `/news/${this.category}/${this.id}/`
+            to: `/news/${this.category}/${this.id}/`,
+            src: `${this.thumbnail.url}?fm=webp`
         }
     },
 }
