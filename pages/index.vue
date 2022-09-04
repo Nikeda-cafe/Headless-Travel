@@ -130,16 +130,17 @@ export default {
         store.commit("resetMenu");
     },
     async asyncData({ params, $config, $axios }) {
+        console.log($config);
         const areaResult = await $axios.$get(`${$config.apiUrl}/area?filters=famous_flag[equals]true&fields=id,name,thumbnail&orders=order`, {
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+            headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
         });
 
         const jenreResult = await $axios.$get(`${$config.apiUrl}/jenre?filters=famous_flag[equals]true&fields=id,jenre_name,thumbnail&orders=order`, {
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+            headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
         });
 
         const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&fields=id,title,thumbnail,area,jenre,publishedAt&limit=6`, {
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+            headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
         });
         return {
             famousArea: areaResult.contents,
@@ -162,5 +163,8 @@ export default {
     .hooper-indicator.is-active{
         background-color: lightblue !important;
     }
+    // .card-item{
+    //     border: 5px solid #fff;
+    // }
 
 </style>

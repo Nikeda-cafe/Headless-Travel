@@ -68,7 +68,7 @@ export default {
   loading: './components/Loading.vue',
 
   publicRuntimeConfig: {
-    apiUrl: 'https://api-test-in.microcms.io/api/v1',
+    apiUrl: API_URL,
   },
   privateRuntimeConfig: {
     apiKey: '691867be-4a35-4006-90c1-9b0856070900',
