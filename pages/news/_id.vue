@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="w-11/12 lg:w-7/12 m-auto lg:mt-24">
+    <div class="w-11/12 lg:w-7/12 m-auto mt-8 lg:mt-24">
         <article class="">
             <section class="s__thumbnail">
                 <img class="max-w-full h-auto rounded-md" :src="res.thumbnail.url" alt="">

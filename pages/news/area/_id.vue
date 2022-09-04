@@ -13,6 +13,7 @@
                     :id="item.id"
                     :area="item.area"
                     :jenre="item.jenre"
+                    :publishedAt="item.publishedAt"
                 />
             </ul>
         </div>

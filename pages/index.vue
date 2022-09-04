@@ -1,5 +1,22 @@
 <template>
   <div class="">
+    <section class="mv">
+        <div class="mv__wrapper relative">
+            <img src="~/assets/main.jpeg" alt="" class="w-full object-cover h-auto">
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-6 mb-8">
+        <div class="w-11/12 m-auto">
+            <h2 class="text-black font-bold text-3xl mb-2">CONCEPT</h2>
+            <p class="text-gray-600 text-lg font-bold mb-4">コンセプト</p>
+            <div class="p-5 bg-white rounded-lg shadow-lg">
+                <p class="mb-4 text-xl">旅をテーマに世界遺産や世界の歴史、世界中の文化やグルメについての情報をお知らせする情報メディア</p>
+                <p class="text-gray-500">※このサイトは1エンジニアのポートフォリオサイトであり、商用目的のサイトではありません。</p>
+            </div>
+        </div>
+    </section>
+
     <section class="pickup__contents mb-8">
         <div class="w-11/12 m-auto">
             <h2 class="text-black font-bold text-3xl mb-2">PICK UP</h2>
@@ -12,6 +29,7 @@
                         :id="item.id"
                         :area="item.area"
                         :jenre="item.jenre"
+                        :publishedAt="item.publishedAt"
                     />
                 </slide>
                 <hooper-pagination slot="hooper-addons"></hooper-pagination>
@@ -107,7 +125,7 @@ export default {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 
-        const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&fields=id,title,thumbnail,area,jenre,createdAt&limit=6`, {
+        const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&fields=id,title,thumbnail,area,jenre,publishedAt&limit=6`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
         return {

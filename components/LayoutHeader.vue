@@ -1,5 +1,5 @@
 <template>
-    <header class="s__header w-full bg-white px-2 py-2 z-50 pb-4 mb-8">
+    <header class="s__header w-full bg-white px-2 py-2 z-50 pb-4">
         <div class="md:max-w-lg py-2 text-center text-lg font-bold text-gray-500">旅で人生を少し素敵に</div>
         <div class="md:max-w-5xl mx-auto md:flex md:items-center flex">
             <div class="w-1/2 md:w-3/5 md:flex mx-auto px-6 md:px-0 flex justify-between items-center h-16">

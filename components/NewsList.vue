@@ -9,7 +9,13 @@
                     </p>
                     <p v-if="description" class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(description)">
                     </p>
-                    <div class="flex flex-wrap justify-starts items-center mt-4">
+                    <div class="mt-4 text-left flex items-center mb-2">
+                        <span class="material-icons text-gray-500 mr-1 text-xl">
+                            schedule
+                        </span>
+                        <span class="text-md text-gray-500" v-if="publishedAt">{{$dateFns.format(new Date(publishedAt), 'yyyy/MM/dd')}}</span>
+                    </div>
+                    <div class="flex flex-wrap justify-starts items-center mt-0">
                         <TagIcon :bgColor="`bg-blue-100`">{{area.name}}</TagIcon>
                         <TagIcon v-for="(item,index) in jenre">{{item.jenre_name}}</TagIcon>
                     </div>
@@ -45,6 +51,9 @@ export default {
     },
     jenre: {
         type: Array,
+    },
+    publishedAt: {
+        type: String,
     }
   },
   methods: {
