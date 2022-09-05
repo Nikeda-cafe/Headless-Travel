@@ -2,7 +2,10 @@
     <li class="mb-8 news__nav--li">
         <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
-                <img alt="blog photo" :src="src" class="max-h-40 w-full object-cover" :class="imgHeight" />
+                <picture>
+                    <source alt="blog photo" :srcset="src" class="max-h-40 w-full object-cover" :class="imgHeight" type="image/webp" />
+                    <img alt="blog photo" :src="url" class="max-h-40 w-full object-cover" :class="imgHeight" />
+                </picture>
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500" :class="titleHeight" >
                         {{title}}

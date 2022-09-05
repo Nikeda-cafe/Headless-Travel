@@ -2,7 +2,7 @@
     <div class="">
         <section class="mv">
             <div class="mv__wrapper relative">
-                <img src="~/assets/main.jpeg" alt="" class="w-full object-cover h-auto">
+                <img src="~/assets/main.jpeg?webp" type="image/webp" alt="" class="w-full object-cover h-auto">
             </div>
         </section>
 

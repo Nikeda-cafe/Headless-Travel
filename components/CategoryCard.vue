@@ -1,11 +1,14 @@
 <template lang="">
    <nuxt-link :to="to">
         <div v-if="thumbnail" class="relative w-full h-28 md:h-60 hover:opacity-80">
-            <img
-                :src="src"
-                alt="" srcset=""
-                class="h-28 md:h-60 object-cover w-full rounded-md shadow-xl"
-            />
+            <picture>
+                <source :srcset="src" type="image/webp" />
+                <img
+                    :src="thumbnail.url"
+                    alt=""
+                    class="h-28 md:h-60 object-cover w-full rounded-md shadow-xl"
+                />
+            </picture>
             <span class="absolute text-xl text-gray-100 font-bold top-1/4 left-2">{{name}}</span>
         </div>
     </nuxt-link>
