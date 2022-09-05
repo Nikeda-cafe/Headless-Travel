@@ -6,7 +6,7 @@
             </section>
             <section class="s__title my-8">
                 <div class="flex flex-wrap justify-starts items-center mt-4">
-                    <TagIcon :bgColor="`bg-blue-100`">{{res.area.name}}</TagIcon>
+                    <TagIcon bgBlueColor="true">{{res.area.name}}</TagIcon>
                     <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
                 </div>
                 <p class="my-2">公開日：{{$dateFns.format(new Date(res.publishedAt), 'yyyy/MM/dd')}}</p>

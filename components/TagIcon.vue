@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="tag__icon mr-1 py-1.5 px-1.5 text-gray-600 rounded-2xl mt-2" :class="bgColor">
+    <div class="text-sm mr-1 py-1.5 px-1.5 text-gray-600 rounded-2xl mt-2" :class="bindClass">
         #<slot></slot>
     </div>
 </template>
@@ -12,18 +12,29 @@ export default {
         name: {
             type: String,
         },
-        bgColor: {
+        bgBlueColor: {
             type: String,
-            default: 'bg-red-100'
+        },
+        textSizeXsm: {
+            type: String,
         }
 
     },
+    data: function(){
+        return {
+            bindClass: {
+                'bg-blue-100':  this.bgBlueColor ? true : false,
+                'bg-red-100':  this.bgBlueColor ? false : true,
+                'icon__text--xsm': this.textSizeXsm ? true : false
+            }
+        }
+    }
 }
 
 </script>
 
 <style lang="scss">
-    .tag__icon{
+    .icon__text--xsm{
         font-size: 10px;
     }
 </style>

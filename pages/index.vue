@@ -31,8 +31,9 @@
                             :area="item.area"
                             :jenre="item.jenre"
                             :publishedAt="item.publishedAt"
-                            :imgHeight="`h-48`"
-                            :titleHeight="`h-28`"
+                            imgHeight="h-48"
+                            titleHeight="h-28"
+                            textSizeXsm="true"
                         />
                     </slide>
                     <hooper-pagination slot="hooper-addons"></hooper-pagination>

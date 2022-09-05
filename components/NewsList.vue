@@ -19,8 +19,8 @@
                         <span class="text-md text-gray-500" v-if="publishedAt">{{$dateFns.format(new Date(publishedAt), 'yyyy/MM/dd')}}</span>
                     </div>
                     <div class="flex flex-wrap justify-starts items-center mt-0">
-                        <TagIcon :bgColor="`bg-blue-100`">{{area.name}}</TagIcon>
-                        <TagIcon v-for="(item,index) in jenre">{{item.jenre_name}}</TagIcon>
+                        <TagIcon bgBlueColor="true" :textSizeXsm="textSizeXsm">{{area.name}}</TagIcon>
+                        <TagIcon v-for="(item,index) in jenre" :textSizeXsm="textSizeXsm">{{item.jenre_name}}</TagIcon>
                     </div>
                 </div>
             </nuxt-link>
@@ -62,6 +62,9 @@ export default {
             type: String
         },
         titleHeight: {
+            type: String
+        },
+        textSizeXsm: {
             type: String
         }
     },

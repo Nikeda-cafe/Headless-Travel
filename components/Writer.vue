@@ -3,7 +3,10 @@
         <p class="text-gray-500 text-2xl">ライター</p>
         <div class="flex items-center my-4 flex-wrap">
             <a href="#" class="block relative">
-                <img alt="profil" src="@/assets/avater.png" class="mx-auto object-cover rounded-full h-20 w-20 "/>
+                <picture>
+                    <source srcset="@/assets/avater.png?webp" type="image/webp" />
+                    <img alt="profil" src="@/assets/avater.png" class="mx-auto object-cover rounded-full h-20 w-20 "/>
+                </picture>
             </a>
             <div class="flex flex-col ml-2 justify-between">
                 <span class="font-semibold text-indigo-500 text-lg">
