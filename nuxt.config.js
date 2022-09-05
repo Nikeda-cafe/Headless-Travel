@@ -51,7 +51,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'nuxt-lazy-load'
+    'nuxt-lazy-load',
+    '@aceforth/nuxt-optimized-images',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -66,6 +67,9 @@ export default {
     vendor: ['vue-awesome-swiper']
   },
   loading: './components/Loading.vue',
+  optimizedImages: {
+    optimizeImages: true
+  },
 
   publicRuntimeConfig: {
     apiUrl: API_URL,
