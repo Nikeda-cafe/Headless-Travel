@@ -5,9 +5,15 @@
                 <img class="max-w-full h-auto rounded-md" :src="`${res.thumbnail.url}?fm=webp`" alt="">
             </section>
             <section class="s__title my-8">
-                <div class="flex flex-wrap justify-starts items-center mt-4">
+                <div class="flex flex-wrap justify-starts items-center mt-4 relative">
                     <TagIcon bgBlueColor="true">{{res.area.name}}</TagIcon>
                     <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
+                    <span
+                        class="material-icons absolute right-5 top-0.5 text-3xl"
+                        :class="favoColor"
+                        @click="insertFavo(res.id)"
+                    >{{getFavoFlag}}
+                    </span>
                 </div>
                 <p class="my-2">公開日：{{$dateFns.format(new Date(res.publishedAt), 'yyyy/MM/dd')}}</p>
                 <h1 class="lg:text-4xl text-2xl">{{res.title}}</h1>
@@ -36,7 +42,7 @@
 import Writer from '/components/Writer.vue';
 export default {
     mounted() {
-        this.id = this.$route.params.id
+        this.postId = this.$route.params.id
 
     },
     async asyncData({ params,$config,$axios}) {
@@ -49,7 +55,23 @@ export default {
     },
     data: function(){
         return {
-
+            postId: '',
+            favoFlag: false,
+            favoList: JSON.parse(localStorage.getItem('favo_posts')) ?? [],
+            favoColor: ''
+        }
+    },
+    methods: {
+        insertFavo(postId){
+            this.favoList.push(postId)
+            localStorage.setItem('favo_posts',JSON.stringify(this.favoList))
+        }
+    },
+    computed: {
+        getFavoFlag(){
+            this.favoFlag = this.favoList.includes(this.postId) ? true : false
+            this.favoColor = this.favoFlag ? 'text-pink-200' : ''
+            return this.favoFlag ? 'favorite' : 'favorite_border'
         }
     },
     components: { Writer }

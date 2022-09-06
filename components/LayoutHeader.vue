@@ -17,7 +17,7 @@
                         favorite_border
                     </span>
                 </div>
-                <div class="texr-black md:hidden">
+                <div class="texr-black md:hidden" @click="refresh()">
                     <span class="material-icons">
                         restore
                     </span>
@@ -63,7 +63,11 @@
         </div>
         <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-11/12">
             <div class="p-4 bg-white rounded text-2xl w-11/12 m-auto h-11/12">
-
+                <ul>
+                    <li v-for="(item,index) in viewHistory" :key="index">
+                        <span>{{item.title}}</span> : <span>{{item.id}}</span>
+                    </li>
+                </ul>
             </div>
         </vue-final-modal>
     </header>
@@ -81,6 +85,12 @@ export default {
         }
     },
 
+    methods: {
+        refresh: function(){
+            this.$fetch();
+            this.showModal = true
+        }
+    },
     async fetch() {
         const { data } = await axios.get(
         `https://api-test-in.microcms.io/api/v1/news?fields=id,title`,{

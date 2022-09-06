@@ -75,9 +75,9 @@ export default {
     },
     methods: {
         trimPostBody(body){
-        const trimBody = body.slice(0,50) + '...';
-        return trimBody
-        }
+            const trimBody = body.slice(0,50) + '...';
+            return trimBody
+        },
     },
     components: { TagIcon }
 }
