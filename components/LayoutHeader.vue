@@ -60,19 +60,36 @@
                     </nav>
                 </div>
             </div>
-
         </div>
+        <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-11/12">
+            <div class="p-4 bg-white rounded text-2xl w-11/12 m-auto h-11/12">
+
+            </div>
+        </vue-final-modal>
     </header>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'LayoutHeader',
     data() {
         return {
             isOpen: false,
+            showModal: false,
+            viewHistory: {}
         }
     },
+
+    async fetch() {
+        const { data } = await axios.get(
+        `https://api-test-in.microcms.io/api/v1/news?fields=id,title`,{
+            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+        });
+        console.log('get');
+        this.viewHistory = data.contents
+    },
+
     beforeRouteLeave(to,from,next){
         this.isOpen = false
         next();

@@ -40,7 +40,7 @@ export default {
         store.commit('resetMenu')
     },
     async asyncData({ params, $config, $axios }) {
-        console.log(params);
+
         const result = await $axios.$get(`${$config.apiUrl}/news?filters=area[equals]${params.id}`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });

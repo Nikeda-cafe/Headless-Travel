@@ -48,7 +48,7 @@ export default {
   },
   async asyncData({ app }) {
     const items = await app.$axios.$get('https://qiita.com/api/v2/items?query=tag:javascript&per_page=100')
-    console.log(items);
+
     return {
       lists : items
     }

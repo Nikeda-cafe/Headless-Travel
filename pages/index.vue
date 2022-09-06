@@ -134,7 +134,6 @@ export default {
         store.commit("resetMenu");
     },
     async asyncData({ params, $config, $axios }) {
-        console.log($config);
         const areaResult = await $axios.$get(`${$config.apiUrl}/area?filters=famous_flag[equals]true&fields=id,name,thumbnail&orders=order`, {
             headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
         });
