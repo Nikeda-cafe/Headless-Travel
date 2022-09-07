@@ -1,6 +1,6 @@
 <template lang="">
     <div class="bg-white dark:bg-gray-800 w-full shadow-lg mx-auto rounded-xl p-4">
-        <p class="text-gray-500 text-2xl">ライター</p>
+        <p class="text-gray-500 text-2xl">Writer</p>
         <div class="flex items-center my-4 flex-wrap">
             <a href="#" class="block relative">
                 <picture>
@@ -30,7 +30,7 @@
             都内在住のWebエンジニア。好きな言語はjavascript。
             東京理科大学19年卒。学生時代世界史が好きすぎて、歴史能力検定（世界史）二級を取得。
             その後、世界遺産に興味を持ち、世界遺産検定二級を取得。<br>
-            最近の趣味は神社巡りです。
+            最近の趣味は神社巡り。
         </p>
     </div>
 </template>

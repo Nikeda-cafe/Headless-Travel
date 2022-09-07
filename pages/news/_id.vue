@@ -1,37 +1,52 @@
 <template lang="">
-    <div class="w-11/12 lg:w-7/12 m-auto mt-8 mb-8 lg:mt-24">
+    <div class="mt-8 mb-8 lg:mt-24">
         <article class="">
-            <section class="s__thumbnail">
+            <section class="s__thumbnail w-11/12 lg:w-7/12 m-auto">
                 <img class="max-w-full h-auto rounded-md" :src="`${res.thumbnail.url}?fm=webp`" alt="">
             </section>
-            <section class="s__title my-8">
+            <section class="s__title my-8 w-11/12 lg:w-7/12 m-auto">
                 <div class="flex flex-wrap justify-starts items-center mt-4 relative">
                     <TagIcon bgBlueColor="true">{{res.area.name}}</TagIcon>
                     <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
                     <span
+                        v-if="getFavoFlag"
+                        class="material-icons absolute right-5 top-0.5 text-3xl"
+                        :class="favoColor"
+                        @click="deleteFavo(res.id)"
+                    >{{getFavoIcon}}
+                    </span>
+                    <span
+                        v-else
                         class="material-icons absolute right-5 top-0.5 text-3xl"
                         :class="favoColor"
                         @click="insertFavo(res.id)"
-                    >{{getFavoFlag}}
+                    >{{getFavoIcon}}
                     </span>
+
                 </div>
                 <p class="my-2">公開日：{{$dateFns.format(new Date(res.publishedAt), 'yyyy/MM/dd')}}</p>
                 <h1 class="lg:text-4xl text-2xl">{{res.title}}</h1>
             </section>
 
-            <section class="s__writer lg:mb-20 mb-8">
-                <Writer />
+            <section class="s__writer lg:mb-20 mb-8 bg-gray-100 w-full py-8">
+                <div class="w-11/12 lg:w-7/12 m-auto">
+                    <Writer />
+                </div>
             </section>
 
-            <section class="s__contents--description">
+            <section class="s__contents--description w-11/12 lg:w-7/12 m-auto">
                 <p class="text-2xl leading-relaxed">{{res.description}}</p>
             </section>
 
-            <section class="s__contents--body">
+            <section class="s__contents--body w-11/12 lg:w-7/12 m-auto">
                 <div class="" v-html="res.body"></div>
             </section>
 
-            <p></p>
+            <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-11/12">
+                <div class="p-4 bg-white rounded text-2xl w-11/12 m-auto h-11/12">
+                    {{modalText}}
+                </div>
+            </vue-final-modal>
 
         </article>
 
@@ -58,20 +73,42 @@ export default {
             postId: '',
             favoFlag: false,
             favoList: JSON.parse(localStorage.getItem('favo_posts')) ?? [],
-            favoColor: ''
+            favoColor: '',
+            showModal: false,
+            modalText: ''
         }
     },
     methods: {
         insertFavo(postId){
-            this.favoList.push(postId)
-            localStorage.setItem('favo_posts',JSON.stringify(this.favoList))
+            if(!this.favoList.includes(postId)){
+                this.favoList.push(postId)
+                localStorage.setItem('favo_posts',JSON.stringify(this.favoList));
+                this.modalText = 'お気に入りに追加しました！'
+                this.showModal = true
+            }else{
+                return false
+            }
+
+        },
+        deleteFavo(postId){
+            if(this.favoList.includes(postId)){
+                const targetIndex = this.favoList.indexOf(postId);
+                this.favoList.splice(targetIndex, 1)
+                localStorage.setItem('favo_posts',JSON.stringify(this.favoList));
+                this.modalText = 'お気に入りから削除しました！'
+                this.showModal = true
+            }
         }
     },
     computed: {
-        getFavoFlag(){
+        getFavoIcon(){
             this.favoFlag = this.favoList.includes(this.postId) ? true : false
             this.favoColor = this.favoFlag ? 'text-pink-200' : ''
             return this.favoFlag ? 'favorite' : 'favorite_border'
+        },
+        getFavoFlag(){
+            this.favoFlag = this.favoList.includes(this.postId) ? true : false
+            return this.favoFlag
         }
     },
     components: { Writer }
