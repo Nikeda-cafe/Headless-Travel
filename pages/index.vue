@@ -114,7 +114,7 @@ export default {
                 centerMode: true,
                 infiniteScroll: true,
                 autoPlay: true,
-                playSpeed: 5000,
+                playSpeed: 3000,
                 mouseDrag: false,
                 breakpoints: {
                 800: {

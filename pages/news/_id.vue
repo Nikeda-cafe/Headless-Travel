@@ -43,7 +43,7 @@
             </section>
 
             <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-11/12">
-                <div class="p-4 bg-white rounded text-2xl w-11/12 m-auto h-11/12">
+                <div class="p-4 bg-white rounded text-2xl">
                     {{modalText}}
                 </div>
             </vue-final-modal>
@@ -56,6 +56,9 @@
 <script>
 import Writer from '/components/Writer.vue';
 export default {
+    fetch ({store}) {
+        store.commit('resetMenu')
+    },
     mounted() {
         this.postId = this.$route.params.id
 
