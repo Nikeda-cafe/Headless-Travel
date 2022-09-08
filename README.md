@@ -1,5 +1,5 @@
 # Headless Travel
-Nuxt.jsとmicroCMSで開発したHeadlessCMSサイトです。  
+Nuxt.js + microCMS + Firebaseで開発したHeadlessCMSサイトです。  
 ※このサイトは個人的なポートフォリオサイトであり、商用目的のサイトではありません。  
 
 
