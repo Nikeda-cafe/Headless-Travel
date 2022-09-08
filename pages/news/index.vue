@@ -25,6 +25,9 @@ import NewsList from '../../components/NewsList.vue';
 import PageTitle from '../../components/PageTitle.vue';
 // import axios from 'axios'
 export default {
+    head: {
+        title: 'コンテンツ一覧',
+    },
     data: function () {
         return {
             // posts: {},

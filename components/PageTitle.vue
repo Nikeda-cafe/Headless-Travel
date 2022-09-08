@@ -1,7 +1,7 @@
 <template lang="">
     <div class="lg:w-2/6 m-auto text-center my-8">
-        <h2 class="text-4xl">{{englishText}}</h2>
-        <p class="text-md">{{japaneseText}}</p>
+        <p class="text-4xl">{{englishText}}</p>
+        <h1 class="text-md">{{japaneseText}}</h1>
     </div>
 </template>
 

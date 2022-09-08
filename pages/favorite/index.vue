@@ -1,5 +1,6 @@
 <template>
-    <section class="w-11/12 m-auto my-4">
+    <section class="w-11/12 m-auto mb-16">
+        <PageTitle japaneseText="お気に入り記事一覧" englishText="Favorite" />
         <div v-if="posts">
         <div
             class="space-y-8 lg:divide-y lg:divide-gray-100"
@@ -40,7 +41,11 @@
 </template>
 
 <script>
+import PageTitle from '../../components/PageTitle.vue'
 export default {
+    head: {
+        title: 'お気に入り記事一覧',
+    },
     fetch ({store}) {
         store.commit('resetMenu')
     },
@@ -59,12 +64,17 @@ export default {
             const result = await $axios.$get(`${$config.apiUrl}/news?ids=${searchPostIds}`, {
                 headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
             })
-            return {posts: result.contents}
+            return {
+                posts: result.contents
+            }
         }else{
-            return {message: 'お気に入り登録されている記事がありませんでした'}
+            return {
+                posts: null,
+                message: 'お気に入り登録されている記事がありませんでした'
+            }
         }
-
     },
+    components: {PageTitle}
 }
 
 </script>

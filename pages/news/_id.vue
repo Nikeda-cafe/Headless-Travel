@@ -71,12 +71,11 @@
 <script>
 import Writer from '/components/Writer.vue';
 export default {
+    head: {
+        title: 'コンテンツ一覧',
+    },
     fetch ({store}) {
         store.commit('resetMenu')
-    },
-    mounted() {
-        this.postId = this.$route.params.id
-
     },
     async asyncData({ params,$config,$axios}) {
         const result = await $axios.$get(`${$config.apiUrl}/news/${params.id}`, {
@@ -95,6 +94,10 @@ export default {
             showModal: false,
             modalText: ''
         }
+    },
+    mounted() {
+        this.postId = this.$route.params.id
+
     },
     methods: {
         insertFavo(postId){

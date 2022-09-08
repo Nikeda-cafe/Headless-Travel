@@ -60,6 +60,9 @@
 <script>
 export default {
     name: 'ContactPage',
+    head: {
+        title: 'お問い合わせ',
+    },
     data: function(){
         return {
 

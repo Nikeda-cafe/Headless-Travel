@@ -34,6 +34,9 @@
 import PageTitle from '/components/PageTitle.vue';
 import CategoryCard from '/components/CategoryCard.vue';
 export default {
+    head: {
+        title: 'カテゴリから探す',
+    },
     data() {
         return {
             jenreList: {},

@@ -106,6 +106,10 @@ import { Hooper,Slide,Pagination as HooperPagination,Navigation as HooperNavigat
 import 'hooper/dist/hooper.css'
 import IndexPageTitle from '../components/IndexPageTitle.vue';
 export default {
+    head: {
+        title: 'Headless Travel',
+        titleTemplate: null
+    },
     name: "IndexPage",
     data: function() {
         return {
