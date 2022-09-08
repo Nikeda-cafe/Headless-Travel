@@ -84,5 +84,15 @@ export default {
   },
   privateRuntimeConfig: {
     apiKey: '691867be-4a35-4006-90c1-9b0856070900',
-  }
+  },
+  router: {
+    extendRoutes (routes, resolve) {
+      routes.push({
+        statusCode: 404,
+        name: 'custom',
+        path: '*',
+        component: resolve(__dirname, 'pages/404.vue')
+      })
+    }
+  },
 }
