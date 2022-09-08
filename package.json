@@ -25,7 +25,6 @@
     "sass-loader": "^10.1.1",
     "vue": "^2.6.14",
     "vue-final-modal": "^2.4.1",
-    "vue-flag-icon": "^2.0.0",
     "vue-lazyload": "^3.0.0-rc.2",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",

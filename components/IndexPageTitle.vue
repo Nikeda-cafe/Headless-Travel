@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <h2 class="text-black font-bold text-3xl mb-2">{{eng}}</h2>
+        <h1 class="text-black font-bold text-3xl mb-2">{{eng}}</h1>
         <p class="text-gray-600 text-lg font-bold mb-4">{{jap}}</p>
     </div>
 </template>
