@@ -48,6 +48,7 @@
                     </div>
                 </div>
             </div>
+            <client-only>
             <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-full">
                 <div class="p-4 bg-white rounded text-2xl w-11/12 m-auto h-11/12">
                     <ul>
@@ -57,6 +58,7 @@
                     </ul>
                 </div>
             </vue-final-modal>
+            </client-only>
         </header>
         <nav
             class="w-full md:block absolute left-0 md:static bg-white md:bg-none z-20"
@@ -107,7 +109,7 @@ export default {
         `https://api-test-in.microcms.io/api/v1/news?fields=id,title`,{
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
-        console.log('get');
+
         this.viewHistory = data.contents
     },
 

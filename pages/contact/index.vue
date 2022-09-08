@@ -1,7 +1,8 @@
 <template lang="">
-    <div class="w-11/12 text-center m-auto">
+    <div class="text-center m-auto bg-gray-100 py-4">
         <PageTitle englishText="CONTACT" japaneseText="お問い合わせ" />
-        <form class="flex w-full max-w-lg space-x-3 m-auto mb-8">
+        <div class="w-full bg-gray-100">
+        <form class="flex w-11/12 max-w-lg space-x-3 m-auto mb-8">
             <div class="w-full max-w-2xl px-5 py-10 m-auto bg-white rounded-lg shadow dark:bg-gray-800">
                 <div class="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
                     入力フォーム
@@ -37,7 +38,7 @@
                                 placeholder="お問い合わせ内容*"
                                 name="comment"
                                 rows="5"
-                                cols="40"
+                                cols="60"
                                 required
                             >
                             </textarea>
@@ -54,6 +55,7 @@
                 </div>
             </div>
         </form>
+        </div>
     </div>
 </template>
 

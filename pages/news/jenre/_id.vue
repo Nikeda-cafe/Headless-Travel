@@ -25,12 +25,8 @@ import NewsList from '../../../components/NewsList.vue';
 import PageTitle from '../../../components/PageTitle.vue';
 // import axios from 'axios'
 export default {
-    head: {
-        title: '記事一覧',
-    },
     data: function () {
         return {
-            // posts: {},
             id: this.$route.params.id,
             menuId: "",
             src: "",
@@ -57,7 +53,12 @@ export default {
             japaneseText: `${jenreName.contents[0].jenre_name}：コンテンツ一覧`
         };
     },
-    components: { NewsList,  PageTitle }
+    components: { NewsList,  PageTitle },
+    head() {
+        return{
+            title: this.jenre + '-記事一覧',
+        }
+    },
 }
 </script>
 

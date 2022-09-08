@@ -25,9 +25,6 @@ import NewsList from '../../../components/NewsList.vue';
 import PageTitle from '../../../components/PageTitle.vue';
 // import axios from 'axios'
 export default {
-    head: {
-        title:  'エリア記事一覧',
-    },
     data: function () {
         return {
             // posts: {},
@@ -58,7 +55,12 @@ export default {
             japaneseText: `${areaName.contents[0].name}：コンテンツ一覧`
         };
     },
-    components: { NewsList,  PageTitle }
+    components: { NewsList,  PageTitle },
+    head() {
+        return{
+            title: this.area + '-記事一覧',
+        }
+    },
 }
 </script>
 

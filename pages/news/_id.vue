@@ -71,9 +71,6 @@
 <script>
 import Writer from '/components/Writer.vue';
 export default {
-    head: {
-        title: 'コンテンツ一覧',
-    },
     fetch ({store}) {
         store.commit('resetMenu')
     },
@@ -133,6 +130,11 @@ export default {
         },
         getCountFavo(){
             return this.favoList.length
+        }
+    },
+    head() {
+        return {
+            title: this.res.title,
         }
     },
     components: { Writer }
