@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="lg:max-w-5xl lg:m-auto">
         <section class="mv">
             <div class="mv__wrapper relative">
                 <picture>
@@ -20,7 +20,7 @@
         </section>
 
         <section class="pickup__contents mb-8">
-            <div class="w-11/12 m-auto">
+            <div class="w-11/12 lg:w-11/12 m-auto">
                 <IndexPageTitle eng="PICK UP" jap="ピックアップ記事" />
                 <hooper :settings="hooperSettings" class="hooper-outer">
                     <slide class="card-item border-8 border-white" v-for="(item,index) in postList" :key="index">
@@ -41,7 +41,7 @@
             </div>
         </section>
         <section class="famous__area mb-8 bg-gray-100 py-6">
-            <div class="w-11/12 m-auto">
+            <div class="w-11/12 lg:w-10/12 m-auto">
                 <IndexPageTitle eng="FAMOUS AREA" jap="人気のエリア" />
                 <ul>
                     <li v-for="(item,index) in famousArea" class="mb-4">
@@ -62,7 +62,7 @@
             </div>
         </section>
         <section class="famous__area mb-8 py-6">
-            <div class="w-11/12 m-auto">
+            <div class="w-11/12 lg:w-10/12 m-auto">
                 <IndexPageTitle eng="FAMOUS JENRE" jap="人気のジャンル" />
                 <ul>
                     <li v-for="(item,index) in famousJenre" class="mb-4">
@@ -122,7 +122,7 @@ export default {
                     itemsToShow: 3
                 },
                 1000: {
-                    itemsToShow: 3.5,
+                    itemsToShow: 3,
                     pagination: 'fraction'
                 }
                 }
@@ -134,15 +134,15 @@ export default {
         store.commit("resetMenu");
     },
     async asyncData({ params, $config, $axios }) {
-        const areaResult = await $axios.$get(`${$config.apiUrl}/area?filters=famous_flag[equals]true&fields=id,name,thumbnail&orders=order`, {
+        const areaResult = await $axios.$get(`${$config.apiUrl}/area?filters=famous_flag[equals]true`, {
             headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
         });
 
-        const jenreResult = await $axios.$get(`${$config.apiUrl}/jenre?filters=famous_flag[equals]true&fields=id,jenre_name,thumbnail&orders=order`, {
+        const jenreResult = await $axios.$get(`${$config.apiUrl}/jenre?filters=famous_flag[equals]true`, {
             headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
         });
 
-        const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&fields=id,title,thumbnail,area,jenre,publishedAt&limit=6`, {
+        const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&limit=6`, {
             headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
         });
         return {

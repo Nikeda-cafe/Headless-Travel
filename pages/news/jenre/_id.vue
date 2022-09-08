@@ -44,7 +44,7 @@ export default {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 
-        const jenreName = await $axios.$get(`${$config.apiUrl}/jenre?filters=id[equals]${params.id}&fields=jenre_name`, {
+        const jenreName = await $axios.$get(`${$config.apiUrl}/jenre?filters=id[equals]${params.id}`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 

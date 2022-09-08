@@ -50,11 +50,11 @@ export default {
     },
 
     async asyncData({params,$config,$axios}) {
-        const jenre = await $axios.$get(`${$config.apiUrl}/jenre?fields=id,jenre_name,thumbnail,order&orders=order`, {
+        const jenre = await $axios.$get(`${$config.apiUrl}/jenre`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 
-        const area = await $axios.$get(`${$config.apiUrl}/area?fields=id,name,thumbnail,order&orders=order`, {
+        const area = await $axios.$get(`${$config.apiUrl}/area`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
         return {

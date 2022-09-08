@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-11/12">
+        <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-full">
             <div class="p-4 bg-white rounded text-2xl w-11/12 m-auto h-11/12">
                 <ul>
                     <li v-for="(item,index) in viewHistory" :key="index">

@@ -42,9 +42,24 @@
                 <div class="" v-html="res.body"></div>
             </section>
 
-            <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-11/12">
-                <div class="p-4 bg-white rounded text-2xl">
-                    {{modalText}}
+            <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-full">
+                <div v-if="favoFlag" class="p-4 rounded text-2xl bg-red-300 text-white py-8">
+                    <p>{{modalText}}</p>
+                    <div class="text-center mt-4 flex items-center justify-center">
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                        <span class="mb-2">×{{getCountFavo}}</span>
+                    </div>
+                </div>
+                <div v-else class="p-4 rounded text-2xl py-8 bg-gray-400 text-white">
+                    <p>{{modalText}}</p>
+                    <div class="text-center mt-4 flex items-center justify-center">
+                        <span class="material-icons">
+                            favorite_border
+                        </span>
+                        <span class="mb-2">×{{getCountFavo}}</span>
+                    </div>
                 </div>
             </vue-final-modal>
 
@@ -112,6 +127,9 @@ export default {
         getFavoFlag(){
             this.favoFlag = this.favoList.includes(this.postId) ? true : false
             return this.favoFlag
+        },
+        getCountFavo(){
+            return this.favoList.length
         }
     },
     components: { Writer }

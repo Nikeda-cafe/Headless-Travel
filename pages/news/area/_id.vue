@@ -45,7 +45,7 @@ export default {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 
-        const areaName = await $axios.$get(`${$config.apiUrl}/area?filters=id[equals]${params.id}&fields=name`, {
+        const areaName = await $axios.$get(`${$config.apiUrl}/area?filters=id[equals]${params.id}`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 
