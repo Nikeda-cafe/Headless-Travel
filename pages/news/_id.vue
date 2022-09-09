@@ -9,7 +9,7 @@
                     <TagIcon bgBlueColor="true">{{res.area.name}}</TagIcon>
                     <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
                     <span
-                        v-if="getFavoFlag"
+                        v-if="favoFlag"
                         class="material-icons absolute right-5 top-0.5 text-3xl"
                         :class="favoColor"
                         @click="deleteFavo(res.id)"
@@ -19,7 +19,7 @@
                         v-else
                         class="material-icons absolute right-5 top-0.5 text-3xl"
                         :class="favoColor"
-                        @click="insertFavo(res.id)"
+                        @click="insertFavo(res.id,res.title,res.thumbnail.url,$dateFns.format(new Date(), 'yyyy/MM/dd'))"
                     >{{getFavoIcon}}
                     </span>
 
@@ -89,44 +89,42 @@ export default {
             favoList: JSON.parse(localStorage.getItem('favo_posts')) ?? [],
             favoColor: '',
             showModal: false,
-            modalText: ''
+            modalText: '',
         }
     },
     mounted() {
         this.postId = this.$route.params.id
-
+        this.favoFlag = this.favoList.find((v) => v.postId === this.$route.params.id) !== undefined ? true : false
     },
     methods: {
-        insertFavo(postId){
-            if(!this.favoList.includes(postId)){
-                this.favoList.push(postId)
+        insertFavo(postId,postTitle,postThumbUrl,favoDate){
+            if(!this.favoFlag){
+                this.favoList.unshift({postId,postTitle,postThumbUrl,favoDate})
                 localStorage.setItem('favo_posts',JSON.stringify(this.favoList));
                 this.modalText = 'お気に入りに追加しました！'
+                this.favoFlag = this.favoList.find((v) => v.postId === this.$route.params.id) !== undefined ? true : false
                 this.showModal = true
             }else{
                 return false
             }
 
         },
-        deleteFavo(postId){
-            if(this.favoList.includes(postId)){
-                const targetIndex = this.favoList.indexOf(postId);
-                this.favoList.splice(targetIndex, 1)
+        deleteFavo(id){
+            if(this.favoFlag){
+                const deletedArray = this.favoList.filter((v) => v.postId !== id);
+                this.favoList = deletedArray
                 localStorage.setItem('favo_posts',JSON.stringify(this.favoList));
                 this.modalText = 'お気に入りから削除しました！'
+                this.favoFlag = this.favoList.find((v) => v.postId === this.$route.params.id) !== undefined ? true : false
                 this.showModal = true
             }
-        }
+        },
+
     },
     computed: {
         getFavoIcon(){
-            this.favoFlag = this.favoList.includes(this.postId) ? true : false
             this.favoColor = this.favoFlag ? 'text-pink-200' : ''
             return this.favoFlag ? 'favorite' : 'favorite_border'
-        },
-        getFavoFlag(){
-            this.favoFlag = this.favoList.includes(this.postId) ? true : false
-            return this.favoFlag
         },
         getCountFavo(){
             return this.favoList.length

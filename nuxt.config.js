@@ -74,7 +74,10 @@ export default {
     transpile: ['vue-flag-icon'],
     vendor: ['vue-awesome-swiper']
   },
-  loading: './components/Loading.vue',
+//   loading: './components/Loading.vue',
+  loading: {
+    color: 'lightblue'
+  },
   optimizedImages: {
     optimizeImages: true
   },
