@@ -24,14 +24,16 @@
                             <span>favarite</span>
                         </div>
                     </nuxt-link>
-                    <div class="texr-black md:hidden" @click="refresh()">
+                    <nuxt-link to="/history/">
+                    <div class="texr-black md:hidden">
                         <div class="text-center leading-none">
-                                <span class="material-icons text-2xl">
-                                    restore
-                                </span>
-                            </div>
-                            <span>histroy</span>
+                            <span class="material-icons text-2xl">
+                                restore
+                            </span>
+                        </div>
+                        <span>histroy</span>
                     </div>
+                    </nuxt-link>
                     <div class="text-black mr-4">
                         <button class="md:hidden focus:outline-none" @click="$store.commit('toggleMenu')">
                             <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
@@ -48,17 +50,6 @@
                     </div>
                 </div>
             </div>
-            <client-only>
-            <vue-final-modal v-model="showModal" classes="flex justify-center items-center w-full">
-                <div class="p-4 bg-white rounded text-2xl w-11/12 m-auto h-11/12">
-                    <ul>
-                        <li v-for="(item,index) in viewHistory" :key="index">
-                            <span>{{item.title}}</span> : <span>{{item.id}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </vue-final-modal>
-            </client-only>
         </header>
         <nav
             class="w-full md:block absolute left-0 md:static bg-white md:bg-none z-20"
@@ -104,14 +95,14 @@ export default {
             this.showModal = true
         }
     },
-    async fetch() {
-        const { data } = await axios.get(
-        `https://api-test-in.microcms.io/api/v1/news?fields=id,title`,{
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
-        });
+    // async fetch() {
+    //     const { data } = await axios.get(
+    //     `https://api-test-in.microcms.io/api/v1/news?fields=id,title`,{
+    //         headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+    //     });
 
-        this.viewHistory = data.contents
-    },
+    //     this.viewHistory = data.contents
+    // },
 
     beforeRouteLeave(to,from,next){
         this.isOpen = false

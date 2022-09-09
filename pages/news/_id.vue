@@ -86,15 +86,37 @@ export default {
         return {
             postId: '',
             favoFlag: false,
-            favoList: JSON.parse(localStorage.getItem('favo_posts')) ?? [],
+            favoList: [],
             favoColor: '',
             showModal: false,
             modalText: '',
+            historyList: [],
+            historyFlag: false
         }
     },
     mounted() {
         this.postId = this.$route.params.id
+        this.favoList = JSON.parse(localStorage.getItem('favo_posts')) ?? [],
         this.favoFlag = this.favoList.find((v) => v.postId === this.$route.params.id) !== undefined ? true : false
+
+        this.historyList =JSON.parse(localStorage.getItem('history_posts')) ?? [],
+        this.historyFlag = this.historyList.find((v) => v.postId === this.$route.params.id) !== undefined ? true : false
+        const date = new Date()
+        const historyData = {
+                    'postId': this.res.id,
+                    'postTitle': this.res.title,
+                    'postThumbUrl': this.res.thumbnail.url,
+                    'historyDate': date.toLocaleDateString()
+                }
+        if(!this.historyFlag){
+            this.historyList.unshift(historyData);
+        }else{
+            const deletedHistoryArray = this.historyList.filter((v) => v.postId !== this.postId);
+            this.historyList = deletedHistoryArray
+            this.historyList.unshift(historyData);
+        }
+        localStorage.setItem('history_posts',JSON.stringify(this.historyList));
+
     },
     methods: {
         insertFavo(postId,postTitle,postThumbUrl,favoDate){
@@ -119,6 +141,9 @@ export default {
                 this.showModal = true
             }
         },
+        insertHistory(){
+
+        }
 
     },
     computed: {
