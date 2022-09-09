@@ -2,7 +2,7 @@
     <div class="lg:w-3/4 m-auto">
         <PageTitle englishText="CONTENTS" :japaneseText="japaneseText" />
         <!-- news card -->
-        <div class="post__list text-center">
+        <div v-if="posts.contents.length > 0" class="post__list text-center">
             <ul class="flex justify-between flex-wrap w-11/12 lg:w-full m-auto">
                 <NewsList
                     v-for="(item,index) in posts.contents"
@@ -17,12 +17,16 @@
                 />
             </ul>
         </div>
+        <div v-else>
+            <NoContents message="お探ししたエリアの記事がありませんでした。" />
+        </div>
     </div>
 </template>
 
 <script>
 import NewsList from '../../../components/NewsList.vue';
 import PageTitle from '../../../components/PageTitle.vue';
+import NoContents from '../../../components/NoContents.vue';
 // import axios from 'axios'
 export default {
     data: function () {
@@ -55,7 +59,7 @@ export default {
             japaneseText: `${areaName.contents[0].name}：コンテンツ一覧`
         };
     },
-    components: { NewsList,  PageTitle },
+    components: { NewsList, PageTitle, NoContents },
     head() {
         return{
             title: this.area + '-記事一覧',

@@ -1,8 +1,8 @@
 <template>
-    <div class="lg:w-3/4 m-auto">
+    <div class="lg:w-3/4 m-auto my-4">
         <PageTitle englishText="CONTENTS" :japaneseText="japaneseText" />
         <!-- news card -->
-        <div class="post__list text-center">
+        <div v-if="posts.contents.length > 0" class="post__list text-center">
             <ul class="flex justify-between flex-wrap w-11/12 lg:w-full m-auto">
                 <NewsList
                     v-for="(item,index) in posts.contents"
@@ -17,12 +17,16 @@
                 />
             </ul>
         </div>
+        <div v-else>
+            <NoContents message="お探ししたジャンルの記事がありませんでした。" />
+        </div>
     </div>
 </template>
 
 <script>
 import NewsList from '../../../components/NewsList.vue';
 import PageTitle from '../../../components/PageTitle.vue';
+import NoContents from '../../../components/NoContents.vue';
 // import axios from 'axios'
 export default {
     data: function () {
@@ -53,7 +57,7 @@ export default {
             japaneseText: `${jenreName.contents[0].jenre_name}：コンテンツ一覧`
         };
     },
-    components: { NewsList,  PageTitle },
+    components: { NewsList, PageTitle, NoContents },
     head() {
         return{
             title: this.jenre + '-記事一覧',

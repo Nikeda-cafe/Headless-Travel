@@ -12,7 +12,7 @@
             />
         </div>
         <div v-else>
-            <p>{{message}}</p>
+            <NoContents :message="message" />
         </div>
     </section>
 </template>
@@ -20,6 +20,7 @@
 <script>
 import PageTitle from '../../components/PageTitle.vue'
 import ShortNewsList from '../../components/ShortNewsList.vue'
+import NoContents from '../../components/NoContents.vue'
 export default {
     head: {
         title: 'お気に入り記事一覧',
@@ -40,7 +41,7 @@ export default {
         this.userFavoritePosts = JSON.parse(localStorage.getItem('favo_posts')) ?? []
 
     },
-    components: { PageTitle, ShortNewsList }
+    components: { PageTitle, ShortNewsList, NoContents }
 }
 
 </script>

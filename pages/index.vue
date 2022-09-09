@@ -4,7 +4,7 @@
             <div class="mv__wrapper relative">
                 <picture>
                     <source srcset="~/assets/main.jpeg?webp" type="image/webp" />
-                    <img src="~/assets/main.jpeg" type="image/webp" alt="" class="w-full object-cover h-auto" />
+                    <img src="~/assets/main.jpeg" type="image/webp" alt="" class="w-full object-cover h-auto" width="411" height="206"/>
                 </picture>
             </div>
         </section>
