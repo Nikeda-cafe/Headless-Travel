@@ -10,32 +10,35 @@
                 <div class="grid max-w-xl grid-cols-2 gap-4 m-auto">
                     <div class="col-span-2 lg:col-span-1">
                         <div class=" relative ">
+                            <p class="text-left text-lg font-bold m-1">お名前*</p>
                             <input
                                 type="text"
                                 id="contact-form-name"
                                 class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
-                                placeholder="お名前*"
+                                placeholder="フロント太郎"
                                 required
                             />
                         </div>
                     </div>
                     <div class="col-span-2 lg:col-span-1">
                         <div class=" relative ">
+                            <p class="text-left text-lg font-bold m-1">メールアドレス*</p>
                             <input
                                 type="email"
                                 id="contact-form-email"
                                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
-                                placeholder="メールアドレス*"
+                                placeholder="example@gmail.com"
                                 required
                             />
                         </div>
                     </div>
                     <div class="col-span-2">
+                        <p class="text-left text-lg font-bold ml-1">お問い合わせ内容*</p>
                         <label class="text-gray-700" for="name">
                             <textarea
                                 class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                                 id="comment"
-                                placeholder="お問い合わせ内容*"
+                                placeholder=""
                                 name="comment"
                                 rows="5"
                                 cols="60"

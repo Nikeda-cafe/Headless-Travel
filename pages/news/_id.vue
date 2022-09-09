@@ -10,14 +10,14 @@
                     <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
                     <span
                         v-if="favoFlag"
-                        class="material-icons absolute right-5 top-0.5 text-3xl"
+                        class="material-icons absolute right-5 top-0.5 text-3xl cursor-pointer"
                         :class="favoColor"
                         @click="deleteFavo(res.id)"
                     >{{getFavoIcon}}
                     </span>
                     <span
                         v-else
-                        class="material-icons absolute right-5 top-0.5 text-3xl"
+                        class="material-icons absolute right-5 top-0.5 text-3xl cursor-pointer"
                         :class="favoColor"
                         @click="insertFavo(res.id,res.title,res.thumbnail.url,$dateFns.format(new Date(), 'yyyy/MM/dd'))"
                     >{{getFavoIcon}}
@@ -141,10 +141,6 @@ export default {
                 this.showModal = true
             }
         },
-        insertHistory(){
-
-        }
-
     },
     computed: {
         getFavoIcon(){
