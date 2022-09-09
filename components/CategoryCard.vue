@@ -6,7 +6,7 @@
                 <img
                     :src="thumbnail.url"
                     alt=""
-                    class="h-28 md:h-60 object-cover w-full rounded-md shadow-xl"
+                    class="h-28 md:h-48 object-cover w-full rounded-md shadow-xl"
                 />
             </picture>
             <span class="absolute text-xl text-gray-100 font-bold top-1/4 left-2">{{name}}</span>

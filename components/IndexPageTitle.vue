@@ -1,7 +1,7 @@
 <template lang="">
-    <div>
-        <h1 class="text-black font-bold text-3xl mb-2">{{eng}}</h1>
-        <p class="text-gray-600 text-lg font-bold mb-4">{{jap}}</p>
+    <div class="md:mb-16">
+        <h1 class="text-black font-bold text-3xl md:text-5xl mb-2">{{eng}}</h1>
+        <p class="text-gray-600 text-lg md:text-2xl font-bold mb-4">{{jap}}</p>
     </div>
 </template>
 
