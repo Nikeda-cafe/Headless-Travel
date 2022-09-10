@@ -1,5 +1,5 @@
 <template lang="">
-    <li class="mb-8 news__nav--li">
+    <li class="mb-8 news__nav--li md:mb-16">
         <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
                 <picture>
@@ -10,7 +10,7 @@
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500" :class="titleHeight" >
                         {{title}}
                     </p>
-                    <p v-if="description" class="text-gray-400 dark:text-gray-300 font-light text-md" v-html="trimPostBody(description)">
+                    <p v-if="description" class="text-gray-400 dark:text-gray-300 font-light text-md md:h-20" v-html="trimPostBody(description)">
                     </p>
                     <div class="mt-4 text-left flex items-center mb-2">
                         <span class="material-icons text-gray-500 mr-1 text-xl">
@@ -84,10 +84,6 @@ export default {
 
 </script>
 
-<style lang="scss">
-    @media screen and (min-width: 640px){
-        // .news__nav--li{
-        //     width:30%;
-        // }
-    }
+<style lang="scss" scoped>
+
 </style>
