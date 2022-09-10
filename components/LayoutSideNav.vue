@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <section class="side__tag md:mb-16">
+        <section class="side__tag md:mb-12">
             <div class="md:my-4 md:pt-8 md:border-bottom-2 md:border-t-2 md:w-full border-black">
                 <p class="md:font-bold md:text-xl md:mb-6">
                     <span class="sharp">#</span>人気のタグ
@@ -31,22 +31,73 @@
                 <p class="md:font-bold md:text-xl md:mb-6">
                     Pickup記事
                 </p>
-                
+                <ul>
+                    <li
+                        class="md:h-28 md:mb-5"
+                        v-for="pickupPosts of sidePickupPostsCount"
+                        :key="pickupPosts.id"
+                    >
+                        <nuxt-link class="md:flex md:justify-between" :to="`/news/${pickupPosts.id}`">
+                            <div class="md:w-4/12">
+                                <picture>
+                                    <source :srcset="`${pickupPosts.thumbnail.url}?fm=webp`" type="image/webp" />
+                                    <img :src="pickupPosts.thumbnail.url" alt="" class="md:h-20" />
+                                </picture>
+                            </div>
+                            <div class="md:w-7/12">
+                                <p class="md:text-sm md:flex md:items-center">
+                                    <span class="material-icons text-gray-500 mr-1 text-lg">
+                                        schedule
+                                    </span>
+                                    <span>{{$dateFns.format(new Date(pickupPosts.publishedAt), 'yyyy/MM/dd')}}</span>
+                                </p>
+                                <ul class="md:flex">
+                                    <li
+                                        class="md:text-sm md:mr-2"
+                                    >
+                                        <sapn class="text-blue-400">#</sapn>{{pickupPosts.area.name}}
+                                    </li>
+                                    <li
+                                        class="md:text-sm md:mr-2"
+                                        v-for="(item,index) in pickupPosts.jenre"
+                                        :key="index"
+                                    >
+                                        <sapn class="text-blue-400">#</sapn>{{item.jenre_name}}
+                                    </li>
+                                </ul>
+                                <p class="md:font-bold">{{trimPostTitle(pickupPosts.title)}}</p>
+                            </div>
+                        </nuxt-link>
+                    </li>
+                </ul>
             </div>
         </section>
     </div>
 </template>
 
 <script>
+import NewsList from './NewsList.vue';
 export default {
-    name: 'LayoutSideNav',
-    data: function(){
+    name: "LayoutSideNav",
+    data: function () {
         return {
             areaInfoList: this.$store.state.areaInfoList,
             jenreInfoList: this.$store.state.jenreInfoList,
-        }
+            pickupPosts: this.$store.state.pickupPosts,
+        };
     },
-
+    methods: {
+        trimPostTitle(title){
+            const trimTitle = title.slice(0,20) + '...';
+            return trimTitle
+        },
+    },
+    computed: {
+        sidePickupPostsCount(){
+            return this.pickupPosts.slice(0, 3)
+        },
+    },
+    components: { NewsList }
 }
 
 </script>

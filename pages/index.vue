@@ -138,24 +138,15 @@ export default {
                     }
                 }
             },
-            postList: this.$store.state.pickupPosts
+            postList: this.$store.state.pickupPosts,
+            famousArea: this.$store.state.areaInfoList.filter((v) => {return v.famous_flag === true}),
+            famousJenre: this.$store.state.jenreInfoList.filter((v) => {return v.famous_flag === true}),
         };
     },
-    methods: {},
+    methods: {
 
-    async asyncData({ params, $config, $axios }) {
-        const areaResult = await $axios.$get(`${$config.apiUrl}/area?filters=famous_flag[equals]true`, {
-            headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
-        });
-
-        const jenreResult = await $axios.$get(`${$config.apiUrl}/jenre?filters=famous_flag[equals]true`, {
-            headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
-        });
-        return {
-            famousArea: areaResult.contents,
-            famousJenre: jenreResult.contents,
-        };
     },
+
     components: { CategoryCard, NewsList, Hooper, Slide, HooperPagination, HooperNavigation, IndexPageTitle, LayoutSideNav }
 }
 </script>

@@ -37,10 +37,7 @@ export default {
     },
     data: function () {
         return {
-            // posts: {},
             id: this.$route.params.id,
-            menuId: "",
-            src: ""
         };
     },
     methods: {

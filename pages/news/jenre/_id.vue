@@ -38,8 +38,7 @@ export default {
     data: function () {
         return {
             id: this.$route.params.id,
-            menuId: "",
-            src: "",
+
         };
     },
     methods: {
