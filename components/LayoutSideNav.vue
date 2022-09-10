@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="md:sticky md:top-8">
         <section class="side__tag md:mb-12">
             <div class="md:my-4 md:pt-8 md:border-bottom-2 md:border-t-2 md:w-full border-black">
                 <p class="md:font-bold md:text-xl md:mb-6">

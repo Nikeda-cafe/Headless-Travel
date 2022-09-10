@@ -48,7 +48,8 @@ export default {
 <style lang="scss">
     .s__writer{
         &__sns--button{
-            max-width: 32%;
+            max-width: 100%;
+            margin-left: 30px;
         }
     }
     @media screen and (max-width: 480px){
