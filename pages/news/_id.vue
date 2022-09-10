@@ -7,7 +7,7 @@
             <section class="s__title my-8 w-11/12 md:w-9/12 m-auto">
                 <div class="flex flex-wrap justify-starts items-center mt-4 relative">
                     <TagIcon bgBlueColor="true">{{res.area.name}}</TagIcon>
-                    <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
+                    <TagIcon v-for="(item,index) in res.genre">{{item.genre_name}}</TagIcon>
                     <span
                         v-if="favoFlag"
                         class="material-icons absolute right-5 top-0.5 text-3xl md:text-5xl cursor-pointer"

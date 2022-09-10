@@ -17,12 +17,12 @@
         <div class="w-11/12 m-auto">
             <h2 class="serch__area font-bold text-xl border-b border-gray-400 mb-4 pb-2">ジャンルから探す</h2>
             <ul class="serch__area--flex md:flex md:flex-wrap md:justify-between">
-                <li v-for="(item,index) in jenreList" :key="item.order" class="w-full mb-4 md:mb-10 md:w-1/2 rounded-md">
+                <li v-for="(item,index) in genreList" :key="item.order" class="w-full mb-4 md:mb-10 md:w-1/2 rounded-md">
                     <CategoryCard
                         :id="item.id"
-                        :name="item.jenre_name"
+                        :name="item.genre_name"
                         :thumbnail="item.thumbnail"
-                        category="jenre"
+                        category="genre"
                     />
                 </li>
             </ul>
@@ -43,7 +43,7 @@ export default {
     },
     data() {
         return {
-            jenreList: this.$store.state.jenreInfoList,
+            genreList: this.$store.state.genreInfoList,
             areaList: this.$store.state.areaInfoList,
         }
     },

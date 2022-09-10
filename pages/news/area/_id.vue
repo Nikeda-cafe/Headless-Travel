@@ -1,6 +1,6 @@
 <template>
     <div class="lg:w-3/4 m-auto">
-        <PageTitle englishText="CONTENTS" :japaneseText="japaneseText" />
+        <PageTitle englishText="CONTENTS" :japaneseText="`${this.area}：コンテンツ一覧`" />
         <!-- news card -->
         <div v-if="posts.contents.length > 0" class="post__list text-center">
             <ul class="flex justify-between flex-wrap w-11/12 lg:w-full m-auto">
@@ -12,7 +12,7 @@
                     :title="item.title"
                     :id="item.id"
                     :area="item.area"
-                    :jenre="item.jenre"
+                    :genre="item.genre"
                     :publishedAt="item.publishedAt"
                 />
             </ul>
@@ -41,6 +41,7 @@ export default {
     data: function () {
         return {
             id: this.$route.params.id,
+            area: this.$store.state.areaInfoList.filter((v) => {return v.id === this.$route.params.id})[0].name,
         };
     },
     methods: {
@@ -52,14 +53,9 @@ export default {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 
-        const areaName = await $axios.$get(`${$config.apiUrl}/area?filters=id[equals]${params.id}`, {
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
-        });
-
         return {
             posts: result,
-            area: areaName.contents[0].name,
-            japaneseText: `${areaName.contents[0].name}：コンテンツ一覧`
+
         };
     },
     components: { NewsList, PageTitle, NoContents },

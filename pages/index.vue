@@ -31,7 +31,7 @@
                                     :title="item.title"
                                     :id="item.id"
                                     :area="item.area"
-                                    :jenre="item.jenre"
+                                    :genre="item.genre"
                                     :publishedAt="item.publishedAt"
                                     imgHeight="h-48"
                                     titleHeight="h-28"
@@ -65,15 +65,15 @@
                 </section>
                 <section class="famous__area mb-8 md:mb-16 py-6 md:py-20">
                     <div class="w-11/12 md:w-8/12 m-auto">
-                        <IndexPageTitle eng="FAMOUS JENRE" jap="人気のジャンル" />
+                        <IndexPageTitle eng="FAMOUS GENRE" jap="人気のジャンル" />
                         <ul class="md:flex md:justify-between md:flex-wrap">
-                            <li v-for="(item,index) in famousJenre" class="famous__card mb-4">
+                            <li v-for="(item,index) in famousgenre" class="famous__card mb-4">
                                 <CategoryCard
                                     :key="index"
                                     :id="item.id"
-                                    :name="item.jenre_name"
+                                    :name="item.genre_name"
                                     :thumbnail="item.thumbnail"
-                                    category="jenre"
+                                    category="genre"
                                 />
                             </li>
                         </ul>
@@ -143,7 +143,7 @@ export default {
             },
             postList: this.$store.state.pickupPosts,
             famousArea: this.$store.state.areaInfoList.filter((v) => {return v.famous_flag === true}),
-            famousJenre: this.$store.state.jenreInfoList.filter((v) => {return v.famous_flag === true}),
+            famousgenre: this.$store.state.genreInfoList.filter((v) => {return v.famous_flag === true}),
         };
     },
     methods: {

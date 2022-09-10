@@ -11,10 +11,10 @@
                         class="md:mr-2 md:mb-2 md:text-gray-500  md:hover:text-gray-800"
                     ><nuxt-link :to="`/news/area/${item.id}/`"><span class="text-blue-400">#</span>{{item.name}}</nuxt-link>
                     </li>
-                    <li v-for="(item,index) in jenreInfoList"
+                    <li v-for="(item,index) in genreInfoList"
                         :key="index"
                         class="md:mr-2 md:mb-2 md:text-gray-500  md:hover:text-gray-800"
-                    ><nuxt-link :to="`/news/jenre/${item.id}/`"><sapn class="text-blue-400">#</sapn>{{item.jenre_name}}</nuxt-link>
+                    ><nuxt-link :to="`/news/genre/${item.id}/`"><sapn class="text-blue-400">#</sapn>{{item.genre_name}}</nuxt-link>
                     </li>
                 </ul>
                 <div class="md:flex md:justify-end">
@@ -59,10 +59,10 @@
                                     </li>
                                     <li
                                         class="md:text-sm md:mr-2"
-                                        v-for="(item,index) in pickupPosts.jenre"
+                                        v-for="(item,index) in pickupPosts.genre"
                                         :key="index"
                                     >
-                                        <sapn class="text-blue-400">#</sapn>{{item.jenre_name}}
+                                        <sapn class="text-blue-400">#</sapn>{{item.genre_name}}
                                     </li>
                                 </ul>
                                 <p class="md:font-bold">{{trimPostTitle(pickupPosts.title)}}</p>
@@ -82,7 +82,7 @@ export default {
     data: function () {
         return {
             areaInfoList: this.$store.state.areaInfoList,
-            jenreInfoList: this.$store.state.jenreInfoList,
+            genreInfoList: this.$store.state.genreInfoList,
             pickupPosts: this.$store.state.pickupPosts,
         };
     },

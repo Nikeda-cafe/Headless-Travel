@@ -20,7 +20,7 @@
                     </div>
                     <div class="flex flex-wrap justify-starts items-center mt-0">
                         <TagIcon bgBlueColor="true" :textSizeXsm="textSizeXsm">{{area.name}}</TagIcon>
-                        <TagIcon v-for="(item,index) in jenre" :textSizeXsm="textSizeXsm">{{item.jenre_name}}</TagIcon>
+                        <TagIcon v-for="(item,index) in genre" :textSizeXsm="textSizeXsm">{{item.genre_name}}</TagIcon>
                     </div>
                 </div>
             </nuxt-link>
@@ -52,7 +52,7 @@ export default {
             type: Object,
             required: true
         },
-        jenre: {
+        genre: {
             type: Array,
         },
         publishedAt: {

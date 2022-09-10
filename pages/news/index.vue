@@ -12,7 +12,7 @@
                     :title="item.title"
                     :id="item.id"
                     :area="item.area"
-                    :jenre="item.jenre"
+                    :genre="item.genre"
                     :publishedAt="item.publishedAt"
                 />
             </ul>
