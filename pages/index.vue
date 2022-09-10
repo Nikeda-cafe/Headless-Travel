@@ -24,8 +24,8 @@
                 <section class="pickup__contents mb-8 md:mb-16">
                     <div class="w-11/12 md:w-8/12 m-auto">
                         <IndexPageTitle eng="PICK UP" jap="ピックアップ記事" />
-                        <hooper :settings="hooperSettings" class="hooper-outer">
-                            <slide class="card-item border-8 border-white" v-for="(item,index) in postList" :key="index">
+                        <VueSlickCarousel v-bind="settings">
+                            <div class="card-item border-8 border-white slider-item" v-for="(item,index) in postList" :key="index">
                                 <NewsList
                                     :url="item.thumbnail.url"
                                     :title="item.title"
@@ -37,9 +37,8 @@
                                     titleHeight="h-28"
                                     textSizeXsm="true"
                                 />
-                            </slide>
-                            <hooper-pagination slot="hooper-addons"></hooper-pagination>
-                        </hooper>
+                            </div>
+                        </VueSlickCarousel>
                     </div>
                 </section>
                 <section class="famous__area mb-8 md:mb-16 md:py-20 bg-gray-100  py-6">
@@ -105,6 +104,9 @@
 </template>
 
 <script>
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import CategoryCard from '../components/CategoryCard.vue';
 import NewsList from '../components/NewsList.vue';
 import { Hooper,Slide,Pagination as HooperPagination,Navigation as HooperNavigation} from 'hooper'
@@ -123,34 +125,27 @@ export default {
     name: "IndexPage",
     data: function() {
         return {
-            hooperSettings: {
-                itemsToShow: 1.5,
-                centerMode: true,
-                infiniteScroll: true,
-                autoPlay: true,
-                playSpeed: 3000,
-                mouseDrag: false,
-                breakpoints: {
-                    800: {
-                        centerMode: false,
-                        itemsToShow: 3
-                    },
-                    1000: {
-                        itemsToShow: 3.5,
-                        pagination: 'fraction'
-                    }
-                }
-            },
             postList: this.$store.state.pickupPosts,
             famousArea: this.$store.state.areaInfoList.filter((v) => {return v.famous_flag === true}),
             famousgenre: this.$store.state.genreInfoList.filter((v) => {return v.famous_flag === true}),
+            settings:{
+                "dots": true,
+                "infinite": true,
+                "speed": 300,
+                "autoplay":true,
+                "slidesToShow": 1,
+                "slidesToScroll": 1,
+                "initialSlide": 0,
+                "centerMode":true,
+                "swipeToSlide": true,
+            }
         };
     },
     methods: {
 
     },
 
-    components: { CategoryCard, NewsList, Hooper, Slide, HooperPagination, HooperNavigation, IndexPageTitle, LayoutSideNav }
+    components: { CategoryCard, NewsList, IndexPageTitle, LayoutSideNav, VueSlickCarousel}
 }
 </script>
 
@@ -175,6 +170,9 @@ export default {
         .famous__card{
             width: 48%;
         }
+    }
+    li{
+        list-style: none;
     }
 
 </style>
