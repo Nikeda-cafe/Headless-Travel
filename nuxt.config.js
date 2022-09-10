@@ -41,7 +41,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/init.js',
-    { src: '@/plugins/v-modal', mode: 'client'},
+    { src: '@/plugins/v-modal', ssr: false },
     // { src: '@/plugins/v-tippy', mode: 'client'},
   ],
 
@@ -75,6 +75,9 @@ export default {
   build: {
     transpile: ['vue-flag-icon'],
     vendor: ['vue-awesome-swiper']
+  },
+  generate: {
+    dir: 'C:\Users\cafea\public'
   },
 //   loading: './components/Loading.vue',
   loading: {
