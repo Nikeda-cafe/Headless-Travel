@@ -13,7 +13,6 @@
                         class="material-icons absolute right-5 top-0.5 text-3xl md:text-5xl cursor-pointer"
                         :class="favoColor"
                         @click="deleteFavo(res.id)"
-                        content="お気に入りから削除する" v-tippy='{ arrow : true, arrowType : "round" }'
                     >{{getFavoIcon}}
                     </span>
                     <span
@@ -21,7 +20,6 @@
                         class="material-icons absolute right-5 top-0.5 text-3xl md:text-5xl cursor-pointer"
                         :class="favoColor"
                         @click="insertFavo(res.id,res.title,res.thumbnail.url,$dateFns.format(new Date(), 'yyyy/MM/dd'))"
-                        content="お気に入り登録する" v-tippy='{ arrow : true, arrowType : "round" }'
                     >{{getFavoIcon}}
                     </span>
 
