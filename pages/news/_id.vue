@@ -76,13 +76,10 @@ import Writer from '/components/Writer.vue';
 import LayoutSideNav from '/components/LayoutSideNav.vue';
 export default {
     middleware: 'insertStoreMasterData',
-    async asyncData({ params,$config,$axios}) {
-        const result = await $axios.$get(`${$config.apiUrl}/news/${params.id}`, {
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
-        });
+    head() {
         return {
-            res: result
-        };
+            title: this.res.title,
+        }
     },
     data: function(){
         return {
@@ -153,10 +150,13 @@ export default {
             return this.favoList.length
         }
     },
-    head() {
+    async asyncData({ params,$config,$axios}) {
+        const result = await $axios.$get(`${$config.apiUrl}/news/${params.id}`, {
+            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+        });
         return {
-            title: this.res.title,
-        }
+            res: result
+        };
     },
     components: { Writer, LayoutSideNav }
 }

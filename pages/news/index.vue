@@ -23,11 +23,12 @@
 <script>
 import NewsList from '../../components/NewsList.vue';
 import PageTitle from '../../components/PageTitle.vue';
-// import axios from 'axios'
 export default {
     middleware: 'insertStoreMasterData',
-    head: {
-        title: 'コンテンツ一覧',
+    head(){
+        return{
+            title: 'コンテンツ一覧',
+        }
     },
     data: function () {
         return {

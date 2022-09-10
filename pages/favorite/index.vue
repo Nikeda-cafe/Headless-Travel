@@ -23,11 +23,10 @@ import ShortNewsList from '../../components/ShortNewsList.vue'
 import NoContents from '../../components/NoContents.vue'
 export default {
     middleware: 'insertStoreMasterData',
-    head: {
-        title: 'お気に入り記事一覧',
-    },
-    fetch ({store}) {
-        store.commit('resetMenu')
+    head(){
+        return{
+            title: 'お気に入り記事一覧',
+        }
     },
     data: function(){
         return {

@@ -30,6 +30,11 @@ import NoContents from '../../../components/NoContents.vue';
 // import axios from 'axios'
 export default {
     middleware: 'insertStoreMasterData',
+    head() {
+        return{
+            title: this.jenre + '-記事一覧',
+        }
+    },
     data: function () {
         return {
             id: this.$route.params.id,
@@ -39,9 +44,6 @@ export default {
     },
     methods: {
 
-    },
-    fetch ({store}) {
-        store.commit('resetMenu')
     },
     async asyncData({ params, $config, $axios }) {
         const result = await $axios.$get(`${$config.apiUrl}/news?filters=jenre[contains]${params.id}`, {
@@ -59,11 +61,6 @@ export default {
         };
     },
     components: { NewsList, PageTitle, NoContents },
-    head() {
-        return{
-            title: this.jenre + '-記事一覧',
-        }
-    },
 }
 </script>
 

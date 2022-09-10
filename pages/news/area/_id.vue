@@ -30,6 +30,11 @@ import NoContents from '../../../components/NoContents.vue';
 // import axios from 'axios'
 export default {
     middleware: 'insertStoreMasterData',
+    head() {
+        return{
+            title: this.area + '-記事一覧',
+        }
+    },
     data: function () {
         return {
             // posts: {},
@@ -58,11 +63,6 @@ export default {
         };
     },
     components: { NewsList, PageTitle, NoContents },
-    head() {
-        return{
-            title: this.area + '-記事一覧',
-        }
-    },
 }
 </script>
 
