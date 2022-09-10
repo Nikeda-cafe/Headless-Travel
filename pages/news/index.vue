@@ -25,6 +25,7 @@ import NewsList from '../../components/NewsList.vue';
 import PageTitle from '../../components/PageTitle.vue';
 // import axios from 'axios'
 export default {
+    middleware: 'insertStoreMasterData',
     head: {
         title: 'コンテンツ一覧',
     },
@@ -38,9 +39,6 @@ export default {
     },
     methods: {
 
-    },
-    fetch ({store}) {
-        store.commit('resetMenu')
     },
     async asyncData({ query, $config, $axios }) {
         const result = await $axios.$get(`${$config.apiUrl}/news/`, {

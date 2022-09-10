@@ -29,6 +29,7 @@ import PageTitle from '../../../components/PageTitle.vue';
 import NoContents from '../../../components/NoContents.vue';
 // import axios from 'axios'
 export default {
+    middleware: 'insertStoreMasterData',
     data: function () {
         return {
             id: this.$route.params.id,

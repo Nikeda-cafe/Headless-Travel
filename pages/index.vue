@@ -112,6 +112,7 @@ import 'hooper/dist/hooper.css'
 import IndexPageTitle from '../components/IndexPageTitle.vue';
 import LayoutSideNav from '../components/LayoutSideNav.vue';
 export default {
+    middleware: 'insertStoreMasterData',
     head: {
         title: 'Headless Travel',
         titleTemplate: null
@@ -127,22 +128,21 @@ export default {
                 playSpeed: 3000,
                 mouseDrag: false,
                 breakpoints: {
-                800: {
-                    centerMode: false,
-                    itemsToShow: 3
-                },
-                1000: {
-                    itemsToShow: 3.5,
-                    pagination: 'fraction'
+                    800: {
+                        centerMode: false,
+                        itemsToShow: 3
+                    },
+                    1000: {
+                        itemsToShow: 3.5,
+                        pagination: 'fraction'
+                    }
                 }
-                }
-            }
+            },
+            postList: this.$store.state.pickupPosts
         };
     },
     methods: {},
-    fetch({ store }) {
-        store.commit("resetMenu");
-    },
+
     async asyncData({ params, $config, $axios }) {
         const areaResult = await $axios.$get(`${$config.apiUrl}/area?filters=famous_flag[equals]true`, {
             headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
@@ -151,14 +151,9 @@ export default {
         const jenreResult = await $axios.$get(`${$config.apiUrl}/jenre?filters=famous_flag[equals]true`, {
             headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
         });
-
-        const pickupResult = await $axios.$get(`${$config.apiUrl}/news?filters=pickup_flag[equals]true&limit=6`, {
-            headers: { "X-API-KEY": '691867be-4a35-4006-90c1-9b0856070900' },
-        });
         return {
             famousArea: areaResult.contents,
             famousJenre: jenreResult.contents,
-            postList: pickupResult.contents
         };
     },
     components: { CategoryCard, NewsList, Hooper, Slide, HooperPagination, HooperNavigation, IndexPageTitle, LayoutSideNav }
@@ -166,7 +161,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
     .hooper{
         height: 100%;
     }

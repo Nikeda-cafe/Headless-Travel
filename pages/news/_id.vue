@@ -1,23 +1,23 @@
 <template lang="">
-    <div class="mt-8 mb-8 lg:mt-24">
-        <article class="">
-            <section class="s__thumbnail w-11/12 lg:w-7/12 m-auto">
+    <div class="mt-8 mb-8 lg:mt-24 md:flex md:justify-between md:w-11/12">
+        <article class="md:w-9/12 ">
+            <section class="s__thumbnail w-11/12 md:w-9/12 m-auto">
                 <img class="max-w-full h-auto rounded-md" :src="`${res.thumbnail.url}?fm=webp`" alt="">
             </section>
-            <section class="s__title my-8 w-11/12 lg:w-7/12 m-auto">
+            <section class="s__title my-8 w-11/12 md:w-9/12 m-auto">
                 <div class="flex flex-wrap justify-starts items-center mt-4 relative">
                     <TagIcon bgBlueColor="true">{{res.area.name}}</TagIcon>
                     <TagIcon v-for="(item,index) in res.jenre">{{item.jenre_name}}</TagIcon>
                     <span
                         v-if="favoFlag"
-                        class="material-icons absolute right-5 top-0.5 text-3xl cursor-pointer"
+                        class="material-icons absolute right-5 top-0.5 text-3xl md:text-5xl cursor-pointer"
                         :class="favoColor"
                         @click="deleteFavo(res.id)"
                     >{{getFavoIcon}}
                     </span>
                     <span
                         v-else
-                        class="material-icons absolute right-5 top-0.5 text-3xl cursor-pointer"
+                        class="material-icons absolute right-5 top-0.5 text-3xl md:text-5xl cursor-pointer"
                         :class="favoColor"
                         @click="insertFavo(res.id,res.title,res.thumbnail.url,$dateFns.format(new Date(), 'yyyy/MM/dd'))"
                     >{{getFavoIcon}}
@@ -28,17 +28,17 @@
                 <h1 class="lg:text-4xl text-2xl">{{res.title}}</h1>
             </section>
 
-            <section class="s__writer lg:mb-20 mb-8 bg-gray-100 w-full py-8">
-                <div class="w-11/12 lg:w-7/12 m-auto">
+            <section class="s__writer md:mb-20 mb-8 bg-gray-100 md:bg-white w-full py-8 md:py-0">
+                <div class="w-11/12 md:w-9/12 m-auto md:bg-gray-100 md:p-8">
                     <Writer />
                 </div>
             </section>
 
-            <section class="s__contents--description w-11/12 lg:w-7/12 m-auto">
+            <section class="s__contents--description w-11/12 md:w-9/12 m-auto">
                 <p class="text-2xl leading-relaxed">{{res.description}}</p>
             </section>
 
-            <section class="s__contents--body w-11/12 lg:w-7/12 m-auto">
+            <section class="s__contents--body w-11/12 md:w-9/12 m-auto">
                 <div class="" v-html="res.body"></div>
             </section>
 
@@ -64,16 +64,18 @@
             </vue-final-modal>
 
         </article>
+        <aside class="hidden md:block md:w-3/12">
+            <LayoutSideNav />
+        </aside>
 
     </div>
 </template>
 
 <script>
 import Writer from '/components/Writer.vue';
+import LayoutSideNav from '/components/LayoutSideNav.vue';
 export default {
-    fetch ({store}) {
-        store.commit('resetMenu')
-    },
+    middleware: 'insertStoreMasterData',
     async asyncData({ params,$config,$axios}) {
         const result = await $axios.$get(`${$config.apiUrl}/news/${params.id}`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
@@ -156,7 +158,7 @@ export default {
             title: this.res.title,
         }
     },
-    components: { Writer }
+    components: { Writer, LayoutSideNav }
 }
 </script>
 

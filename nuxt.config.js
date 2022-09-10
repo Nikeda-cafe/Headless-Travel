@@ -16,7 +16,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
-
+      { hid: "robots", name: "robots", content: "noindex" },
       { hid: 'og:site_name', property: 'og:site_name', content: 'Headless Travel' },
       { hid: 'og:type', property: 'og:type', content: 'サイトのタイプ' },
       { hid: 'og:url', property: 'og:url', content: 'サイトURL' },

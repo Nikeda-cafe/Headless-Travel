@@ -34,36 +34,19 @@
 import PageTitle from '/components/PageTitle.vue';
 import CategoryCard from '/components/CategoryCard.vue';
 export default {
+    middleware: 'insertStoreMasterData',
     head: {
         title: 'カテゴリから探す',
     },
     data() {
         return {
-            jenreList: {},
-            areaList: {},
+            jenreList: this.$store.state.jenreInfoList,
+            areaList: this.$store.state.areaInfoList,
         }
     },
 
     methods: {
 
-    },
-
-    fetch ({store}) {
-        store.commit('resetMenu')
-    },
-
-    async asyncData({params,$config,$axios}) {
-        const jenre = await $axios.$get(`${$config.apiUrl}/jenre`, {
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
-        });
-
-        const area = await $axios.$get(`${$config.apiUrl}/area`, {
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
-        });
-        return {
-            jenreList: jenre.contents,
-            areaList: area.contents
-        };
     },
     components: {PageTitle,CategoryCard}
 }
