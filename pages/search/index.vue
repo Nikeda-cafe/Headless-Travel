@@ -40,6 +40,7 @@
 <script>
 import PageTitle from '/components/PageTitle.vue';
 import CategoryCard from '/components/CategoryCard.vue';
+import LayoutSideNav from '/components/LayoutSideNav.vue';
 export default {
     // middleware: 'insertStoreMasterData',
     fetch(){
@@ -58,7 +59,7 @@ export default {
     methods: {
 
     },
-    components: {PageTitle,CategoryCard}
+    components: {PageTitle,CategoryCard, LayoutSideNav}
 }
 </script>
 

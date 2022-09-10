@@ -1,5 +1,5 @@
 <template>
-    <div class="space-y-8 lg:divide-y lg:divide-gray-100">
+    <div class="space-y-8 lg:divide-y lg:divide-gray-100 mb-8">
         <nuxt-link :to="`/news/${id}`">
             <div class="pt-8 sm:flex lg:items-end group">
                 <div class="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">

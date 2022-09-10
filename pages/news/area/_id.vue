@@ -33,6 +33,7 @@
 import NewsList from '../../../components/NewsList.vue';
 import PageTitle from '../../../components/PageTitle.vue';
 import NoContents from '../../../components/NoContents.vue';
+import LayoutSideNav from '/components/LayoutSideNav.vue';
 // import axios from 'axios'
 export default {
     // middleware: 'insertStoreMasterData',
@@ -64,7 +65,7 @@ export default {
 
         };
     },
-    components: { NewsList, PageTitle, NoContents },
+    components: { NewsList, PageTitle, NoContents, LayoutSideNav },
 }
 </script>
 

@@ -42,6 +42,7 @@ export default {
   plugins: [
     '~/plugins/init.js',
     { src: '@/plugins/v-modal', mode: 'client'},
+    { src: '@/plugins/v-tippy', mode: 'client'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

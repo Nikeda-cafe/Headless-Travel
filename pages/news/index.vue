@@ -30,6 +30,7 @@
 <script>
 import NewsList from '../../components/NewsList.vue';
 import PageTitle from '../../components/PageTitle.vue';
+import LayoutSideNav from '/components/LayoutSideNav.vue';
 export default {
     // middleware: 'insertStoreMasterData',
     fetch(){
@@ -60,7 +61,7 @@ export default {
             posts: result
         };
     },
-    components: { NewsList,  PageTitle }
+    components: { NewsList,  PageTitle, LayoutSideNav }
 }
 </script>
 

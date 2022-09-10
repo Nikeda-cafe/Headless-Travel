@@ -28,6 +28,7 @@
 import PageTitle from '../../components/PageTitle.vue'
 import ShortNewsList from '../../components/ShortNewsList.vue'
 import NoContents from '../../components/NoContents.vue'
+import LayoutSideNav from '/components/LayoutSideNav.vue';
 export default {
     // middleware: 'insertStoreMasterData',
     fetch(){
@@ -51,7 +52,7 @@ export default {
         this.userHistoryPosts = JSON.parse(localStorage.getItem('history_posts')) ?? []
 
     },
-    components: { PageTitle, ShortNewsList, NoContents }
+    components: { PageTitle, ShortNewsList, NoContents, LayoutSideNav }
 }
 
 </script>
