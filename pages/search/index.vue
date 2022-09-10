@@ -34,7 +34,10 @@
 import PageTitle from '/components/PageTitle.vue';
 import CategoryCard from '/components/CategoryCard.vue';
 export default {
-    middleware: 'insertStoreMasterData',
+    // middleware: 'insertStoreMasterData',
+    fetch(){
+        this.$store.commit('resetMenu')
+    },
     head: {
         title: 'カテゴリから探す',
     },

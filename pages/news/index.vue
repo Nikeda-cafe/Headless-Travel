@@ -24,7 +24,10 @@
 import NewsList from '../../components/NewsList.vue';
 import PageTitle from '../../components/PageTitle.vue';
 export default {
-    middleware: 'insertStoreMasterData',
+    // middleware: 'insertStoreMasterData',
+    fetch(){
+        this.$store.commit('resetMenu')
+    },
     head(){
         return{
             title: 'コンテンツ一覧',

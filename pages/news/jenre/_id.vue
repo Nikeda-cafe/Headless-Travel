@@ -29,7 +29,10 @@ import PageTitle from '../../../components/PageTitle.vue';
 import NoContents from '../../../components/NoContents.vue';
 // import axios from 'axios'
 export default {
-    middleware: 'insertStoreMasterData',
+    // middleware: 'insertStoreMasterData',
+    fetch(){
+        this.$store.commit('resetMenu')
+    },
     head() {
         return{
             title: this.jenre + '-記事一覧',

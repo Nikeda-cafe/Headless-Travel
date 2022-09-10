@@ -22,7 +22,10 @@ import PageTitle from '../../components/PageTitle.vue'
 import ShortNewsList from '../../components/ShortNewsList.vue'
 import NoContents from '../../components/NoContents.vue'
 export default {
-    middleware: 'insertStoreMasterData',
+    // middleware: 'insertStoreMasterData',
+    fetch(){
+        this.$store.commit('resetMenu')
+    },
     head(){
         return{
             title: 'お気に入り記事一覧',

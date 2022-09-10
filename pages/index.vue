@@ -112,7 +112,10 @@ import 'hooper/dist/hooper.css'
 import IndexPageTitle from '../components/IndexPageTitle.vue';
 import LayoutSideNav from '../components/LayoutSideNav.vue';
 export default {
-    middleware: 'insertStoreMasterData',
+    // middleware: 'insertStoreMasterData',
+    fetch(){
+        this.$store.commit('resetMenu')
+    },
     head: {
         title: 'Headless Travel',
         titleTemplate: null

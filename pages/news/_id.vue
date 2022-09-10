@@ -75,7 +75,10 @@
 import Writer from '/components/Writer.vue';
 import LayoutSideNav from '/components/LayoutSideNav.vue';
 export default {
-    middleware: 'insertStoreMasterData',
+    // middleware: 'insertStoreMasterData,
+    fetch(){
+        this.$store.commit('resetMenu')
+    },
     head() {
         return {
             title: this.res.title,
