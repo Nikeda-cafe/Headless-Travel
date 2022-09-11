@@ -24,21 +24,40 @@
                 <section class="pickup__contents mb-8 md:mb-16">
                     <div class="w-11/12 md:w-8/12 m-auto">
                         <IndexPageTitle eng="PICK UP" jap="ピックアップ記事" />
-                        <VueSlickCarousel v-bind="settings">
-                            <div class="card-item border-8 border-white slider-item" v-for="(item,index) in postList" :key="index">
-                                <NewsList
-                                    :url="item.thumbnail.url"
-                                    :title="item.title"
-                                    :id="item.id"
-                                    :area="item.area"
-                                    :genre="item.genre"
-                                    :publishedAt="item.publishedAt"
-                                    imgHeight="h-48"
-                                    titleHeight="h-28"
-                                    textSizeXsm="true"
-                                />
-                            </div>
-                        </VueSlickCarousel>
+                        <div v-if="$mq === 'pc'">
+                            <VueSlickCarousel v-bind="settingsPc">
+                                <div class="card-item border-8 border-white slider-item" v-for="(item,index) in postList" :key="index">
+                                    <NewsList
+                                        :url="item.thumbnail.url"
+                                        :title="item.title"
+                                        :id="item.id"
+                                        :area="item.area"
+                                        :genre="item.genre"
+                                        :publishedAt="item.publishedAt"
+                                        imgHeight="h-48"
+                                        titleHeight="h-28"
+                                        textSizeXsm="true"
+                                    />
+                                </div>
+                            </VueSlickCarousel>
+                        </div>
+                        <div v-else>
+                            <VueSlickCarousel v-bind="settingsSp">
+                                <div class="card-item border-8 border-white slider-item" v-for="(item,index) in postList" :key="index">
+                                    <NewsList
+                                        :url="item.thumbnail.url"
+                                        :title="item.title"
+                                        :id="item.id"
+                                        :area="item.area"
+                                        :genre="item.genre"
+                                        :publishedAt="item.publishedAt"
+                                        imgHeight="h-48"
+                                        titleHeight="h-28"
+                                        textSizeXsm="true"
+                                    />
+                                </div>
+                            </VueSlickCarousel>
+                        </div>
                     </div>
                 </section>
                 <section class="famous__area mb-8 md:mb-16 md:py-20 bg-gray-100  py-6">
@@ -107,10 +126,9 @@
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import vMediaQuery from 'v-media-query'
 import CategoryCard from '../components/CategoryCard.vue';
 import NewsList from '../components/NewsList.vue';
-import { Hooper,Slide,Pagination as HooperPagination,Navigation as HooperNavigation} from 'hooper'
-import 'hooper/dist/hooper.css'
 import IndexPageTitle from '../components/IndexPageTitle.vue';
 import LayoutSideNav from '../components/LayoutSideNav.vue';
 export default {
@@ -128,7 +146,7 @@ export default {
             postList: this.$store.state.pickupPosts,
             famousArea: this.$store.state.areaInfoList.filter((v) => {return v.famous_flag === true}),
             famousgenre: this.$store.state.genreInfoList.filter((v) => {return v.famous_flag === true}),
-            settings:{
+            settingsSp:{
                 "dots": true,
                 "infinite": true,
                 "speed": 300,
@@ -138,6 +156,17 @@ export default {
                 "initialSlide": 0,
                 "centerMode":true,
                 "swipeToSlide": true,
+            },
+            settingsPc:{
+                "dots": true,
+                "infinite": true,
+                "speed": 300,
+                "autoplay":true,
+                "slidesToShow": 3,
+                "slidesToScroll": 1,
+                "initialSlide": 0,
+                "centerMode":true,
+                "autoplaySpeed": 2000
             }
         };
     },
@@ -145,21 +174,12 @@ export default {
 
     },
 
-    components: { CategoryCard, NewsList, IndexPageTitle, LayoutSideNav, VueSlickCarousel}
+    components: { CategoryCard, NewsList, IndexPageTitle, LayoutSideNav, VueSlickCarousel, vMediaQuery}
 }
 </script>
 
 
 <style lang="scss">
-    .hooper{
-        height: 100%;
-    }
-    .hooper-indicator{
-        background-color: lightgray !important;
-    }
-    .hooper-indicator.is-active{
-        background-color: lightblue !important;
-    }
     @media screen and (min-width: 640px){
         .mv{
             max-width: 1300px;

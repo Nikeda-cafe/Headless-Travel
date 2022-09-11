@@ -2,7 +2,7 @@ const { API_KEY, API_URL } = process.env
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   ssr: true,
-  target: 'static',
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -41,6 +41,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/init.js',
+    '~/plugins/v-mq',
     { src: '@/plugins/v-modal', ssr: false },
     // { src: '@/plugins/v-tippy', mode: 'client'},
   ],
