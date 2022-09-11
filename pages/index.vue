@@ -41,8 +41,8 @@
                                 </div>
                             </VueSlickCarousel>
                         </div>
-                        <div v-else>
-                            <VueSlickCarousel v-bind="settingsSp">
+                        <div v-else class="slick__wrapper">
+                            <VueSlickCarousel v-bind="settingsSp" class="">
                                 <div class="card-item border-8 border-white slider-item" v-for="(item,index) in postList" :key="index">
                                     <NewsList
                                         :url="item.thumbnail.url"
@@ -193,6 +193,10 @@ export default {
     }
     li{
         list-style: none;
+    }
+    .slick__wrapper{
+        width: 94%;
+        margin: 0 auto;
     }
 
 </style>

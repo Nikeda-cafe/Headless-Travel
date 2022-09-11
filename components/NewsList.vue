@@ -6,7 +6,7 @@
                     <source :srcset="src" class="max-h-40 w-full object-cover" :class="imgHeight" type="image/webp" />
                     <img :src="url" class="max-h-40 w-full object-cover" :class="imgHeight" />
                 </picture>
-                <div class="bg-white dark:bg-gray-800 w-full p-4">
+                <div class="bg-white dark:bg-gray-800 w-full p-3">
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500" :class="titleHeight" >
                         {{title}}
                     </p>
