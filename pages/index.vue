@@ -3,7 +3,7 @@
         <section class="md:w-full md:m-auto md:bg-gray-100">
             <div class="mv mv__wrapper md:m-auto bg-gray-200">
                 <picture class="">
-                    <source srcset="~/assets/main.jpeg" />
+                    <source srcset="~/assets/main.webp" type="image/webp" />
                     <img src="~/assets/main.jpeg" alt="" class="w-full object-cover h-auto" width="411" height="206"/>
                 </picture>
             </div>
