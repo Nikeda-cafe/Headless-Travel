@@ -7,7 +7,7 @@
                     <img :src="url" class="max-h-40 w-full object-cover" :class="imgHeight" />
                 </picture>
                 <div class="bg-white dark:bg-gray-800 w-full p-3">
-                    <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500" :class="titleHeight" >
+                    <p class="text-gray-800 dark:text-white text-xl font-medium mb-2 hover:text-gray-500 md:h-20" :class="titleHeight" >
                         {{title}}
                     </p>
                     <p v-if="description" class="text-gray-400 dark:text-gray-300 font-light text-md md:h-20" v-html="trimPostBody(description)">
