@@ -4,7 +4,7 @@
         <div class="flex items-center my-4 flex-wrap">
             <a href="#" class="block relative">
                 <picture>
-                    <source srcset="@/assets/avater.png?webp" type="image/webp" />
+                    <source srcset="@/assets/avater.png" />
                     <img alt="profil" src="@/assets/avater.png" class="mx-auto object-cover rounded-full h-20 w-20 "/>
                 </picture>
             </a>
