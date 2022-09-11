@@ -77,9 +77,6 @@ export default {
     transpile: ['vue-flag-icon'],
     vendor: ['vue-awesome-swiper']
   },
-  generate: {
-    dir: 'C:\Users\cafea\public'
-  },
 //   loading: './components/Loading.vue',
   loading: {
     color: 'lightblue',
