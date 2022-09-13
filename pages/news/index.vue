@@ -21,6 +21,10 @@
                 </div>
             </div>
         </div>
+        <Pagination
+            :pager="pager"
+            :current="Number(page)"
+        />
         <aside class="hidden md:block md:w-3/12">
             <LayoutSideNav />
         </aside>
@@ -31,6 +35,7 @@
 import NewsList from '../../components/NewsList.vue';
 import PageTitle from '../../components/PageTitle.vue';
 import LayoutSideNav from '/components/LayoutSideNav.vue';
+import Pagination from '../../components/Pagination';
 export default {
     // middleware: 'insertStoreMasterData',
     fetch(){
@@ -52,16 +57,20 @@ export default {
     methods: {
 
     },
-    async asyncData({ query, $config, $axios }) {
-        const result = await $axios.$get(`${$config.apiUrl}/news/`, {
+    async asyncData({ query, $config, $axios, params }) {
+        const page = params.p || '1'
+        const limit = 3
+        const result = await $axios.$get(`${$config.apiUrl}/news/?limit=${limit}&offset=${(page - 1) * limit}`, {
             headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
         });
 
         return {
-            posts: result
+            posts: result,
+            page,
+            pager: [...Array(Math.ceil(result.totalCount / limit)).keys()],
         };
     },
-    components: { NewsList,  PageTitle, LayoutSideNav }
+    components: { NewsList,  PageTitle, LayoutSideNav, Pagination }
 }
 </script>
 

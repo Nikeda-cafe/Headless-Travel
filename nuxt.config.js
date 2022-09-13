@@ -64,6 +64,7 @@ export default {
     '@nuxtjs/axios',
     'nuxt-lazy-load',
     '@aceforth/nuxt-optimized-images',
+    'vue-scrollto/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -100,6 +101,11 @@ export default {
         name: 'custom',
         path: '*',
         component: resolve(__dirname, 'pages/404.vue')
+      })
+      routes.push({
+        path: '/page/:p',
+        component: resolve(__dirname, 'pages/news/index.vue'),
+        name: 'page',
       })
     }
   },
