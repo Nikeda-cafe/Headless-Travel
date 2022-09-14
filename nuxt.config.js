@@ -81,7 +81,7 @@ export default {
 //   loading: './components/Loading.vue',
   loading: {
     color: 'lightblue',
-    height: '3px'
+    height: '5px'
   },
   optimizedImages: {
     optimizeImages: true
@@ -103,7 +103,7 @@ export default {
         component: resolve(__dirname, 'pages/404.vue')
       })
       routes.push({
-        path: '/page/:p',
+        path: '/news/page/:p',
         component: resolve(__dirname, 'pages/news/index.vue'),
         name: 'page',
       })

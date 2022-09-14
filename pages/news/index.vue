@@ -20,11 +20,11 @@
                     </ul>
                 </div>
             </div>
+            <Pagination
+                :pager="pager"
+                :current="Number(page)"
+            />
         </div>
-        <Pagination
-            :pager="pager"
-            :current="Number(page)"
-        />
         <aside class="hidden md:block md:w-3/12">
             <LayoutSideNav />
         </aside>
