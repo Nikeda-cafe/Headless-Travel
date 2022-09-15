@@ -83,6 +83,12 @@ export default {
     color: 'lightblue',
     height: '3px'
   },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#ff8f9f',
+    duration: 5000,
+    background: '#FFF'
+  },
   optimizedImages: {
     optimizeImages: true
   },
