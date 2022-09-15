@@ -81,7 +81,7 @@ export default {
 //   loading: './components/Loading.vue',
   loading: {
     color: 'lightblue',
-    height: '5px'
+    height: '3px'
   },
   optimizedImages: {
     optimizeImages: true

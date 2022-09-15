@@ -38,14 +38,11 @@
                 <p class="text-2xl leading-relaxed">{{res.description}}</p>
             </section>
 
+            <section class="s__contents--toc w-11/12 md:w-9/12 m-auto mb-12">
+                <Toc :toc="toc" />
+            </section>
+
             <section class="s__contents--body w-11/12 md:w-9/12 m-auto">
-                <ul class="lists">
-                    <li :class="`list ${item.name}`" v-for="item in toc" :key="item.id">
-                    <n-link v-scroll-to="`#${item.id}`" to>
-                        {{ item.text }}
-                        </n-link>
-                    </li>
-                </ul>
                 <div class="" v-html="res.body"></div>
             </section>
 
@@ -80,6 +77,7 @@
 
 <script>
 import Writer from '/components/Writer.vue';
+import Toc from '/components/Toc.vue';
 import LayoutSideNav from '/components/LayoutSideNav.vue';
 import Cheerio from 'cheerio';
 export default {
@@ -167,21 +165,19 @@ export default {
         });
 
         const $ = Cheerio.load(result.body);
-        const headings = $('h1, h2, h3').toArray();
-        console.log(headings);
+        const headings = $('h1, h2').toArray();
         const toc = headings.map(data => ({
             text: data.children[0].data,
             id: data.attribs.id,
             name: data.name
         }));
-        console.log(toc);
 
         return {
             res: result,
             toc
         };
     },
-    components: { Writer, LayoutSideNav }
+    components: { Writer, LayoutSideNav, Toc }
 }
 </script>
 
