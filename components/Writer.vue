@@ -10,7 +10,7 @@
             </a>
             <div class="flex flex-col ml-2 justify-between">
                 <span class="font-semibold text-indigo-500 text-lg">
-                    フロント太郎
+                    Naoto Ikeda
                 </span>
                 <span class="dark:text-gray-400 text-md flex items-center">
                     Web Engineer
