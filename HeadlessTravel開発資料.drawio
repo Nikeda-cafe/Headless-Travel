@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-18T16:49:14.035Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="q1KOpFVaDfzcwqIIqehu" version="20.3.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-19T08:55:47.743Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="UfbzrdJy5sFx7RDfzR5B" version="20.3.2" type="github">
   <diagram id="57DkckUkoghcNvdpyjVO" name="ページ1">
     <mxGraphModel dx="782" dy="428" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -72,8 +72,8 @@
             <mxPoint x="140" y="296.25" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="efpffI7OLtBo6xo70BxB-22" value="キャッシュ配信" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="120" y="241.25" width="140" height="30" as="geometry" />
+        <mxCell id="efpffI7OLtBo6xo70BxB-22" value="コンテンツ配信" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="130" y="240" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="efpffI7OLtBo6xo70BxB-24" value="データ配信" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="540" y="320" width="100" height="30" as="geometry" />
