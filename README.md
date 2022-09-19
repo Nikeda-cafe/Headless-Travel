@@ -1,7 +1,27 @@
 # Headless Travel
-Nuxt.js + microCMS + Firebaseで開発したHeadlessCMSサイトです。  
-※このサイトは個人的なポートフォリオサイトであり、商用目的のサイトではありません。  
+Nuxt.js + Express.js + microCMS + Firebase + AWSで開発したメディアサイトです。
 
+## 作成の目的
+* WordpressやPHPフレームワークに頼らないシステム開発の知見向上のため（javascriptのみで開発）
+* フロントエンドとバックエンドの領域の分離した開発への適用のため
+* サイトスピードを主としたUXパフォーマンスの高いWebサイトの実現のため
 
+## 使用技術一覧
+* フロントエンド
+    - Nuxt.js（SPA）
+    - Tailwind.css
+* バッグエンド
+    - microCMS
+    - Express.js
+    - MariaDB
+    - Nginx
+* クラウド環境
+    - Firebase Hosting
+    - Firebase Function
+    - Amazon Lightsail
+    - Amazon CloudFront
+* その他
+    - GitHub（バージョン管理、デプロイ）
+    - drowio（ドキュメント作成）
 ## 基盤構成ドキュメント
 ![](./drawio.svg)
