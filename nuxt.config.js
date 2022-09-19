@@ -80,7 +80,7 @@ export default {
   },
 //   loading: './components/Loading.vue',
   loading: {
-    color: 'lightblue',
+    color: '#41ccfa',
     height: '3px'
   },
   loadingIndicator: {
