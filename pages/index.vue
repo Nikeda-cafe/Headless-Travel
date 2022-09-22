@@ -108,8 +108,8 @@
                         <IndexPageTitle eng="CONTACT" jap="お問い合わせ" />
                         <p class="text-xl">制作者への技術的な問い合わせやコンテンツ内容などの各種お問い合わせはこちらから。</p>
                         <div class="text-left">
-                            <nuxt-link to="/contact/">
-                                <button class="font-bold text-lg text-gray-800 border-none px-8 py-6 rounded-lg shadow-lg bg-blue-100 my-8 ml-8">
+                            <nuxt-link to="/contact/" class="ml-8">
+                                <button class="font-bold text-lg text-gray-800 border-none px-8 py-6 rounded-lg shadow-lg bg-blue-100 my-8 ">
                                     お問い合わせする
                                 </button>
                             </nuxt-link>
