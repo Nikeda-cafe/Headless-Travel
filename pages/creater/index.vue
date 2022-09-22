@@ -2,22 +2,24 @@
     <div class="mt-8 mb-8 lg:mt-24 md:flex md:justify-between md:w-11/12">
         <div class="md:w-9/12 ">
             <PageTitle englishText="CREATER" japaneseText="制作者情報" />
-            <section class="bg-gray-50 py-8 md:mt-16 mb-8 md:py-10 md:mr-8">
+            <section class="bg-gray-50 py-8 md:mt-16 mb-8 md:py-10 md:ml-8 md:mr-8">
                 <div class="w-11/12 m-auto">
                     <div class="bg-white dark:bg-gray-800 w-11/12 shadow-lg mx-auto rounded-xl p-4">
-                        <p class="text-gray-600 dark:text-white">
-                            To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
-                        </p>
-                        <div class="flex items-center mt-4">
+                        <div class="flex items-center mt-4 mb-4">
                             <a href="#" class="block relative">
-                                <img alt="profil" src="~/assets/avater.png" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                <img alt="profil" src="~/assets/avater.png" class="mx-auto object-cover rounded-full h-16 w-18 "/>
                             </a>
-                            <div class="flex flex-col ml-2 justify-between">
-                                <span class="font-semibold text-indigo-500 text-sm">
+                            <div class="flex flex-col ml-4 justify-between">
+                                <span class="font-semibold text-indigo-500 text-2xl">
                                     Naoto Ikeda
                                 </span>
                             </div>
                         </div>
+                        <p class="text-gray-600 dark:text-white text-md">
+                            <span class="mb-4">東京理科大学を卒業後、ITソリューション会社で物流、倉庫管理システムの開発に従事。</span><br>
+                            <span class="mb-4">その後、名古屋の大手Webベンチャー企業でフロントエンドエンジニアとしてNuxt.js、AWSを使いポータルサイト、メディアサイトの開発を経験。</span><br>
+                            <span class="mb-4">現在は東京の事業会社でPHPエンジニアとしてポータルサイトの開発をしています。</span>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -36,7 +38,7 @@
                     />
                 </div>
             </section>
-            <section class="bg-gray-50 py-4 md:py-10 md:mr-8">
+            <section class="bg-gray-50 py-4 md:py-10 md:ml-8 md:mr-8">
                 <div class="w-11/12 m-auto">
                     <div class="flex justify-between items-center md:justify-end">
                         <a href="https://github.com/Nikeda-cafe/Headless-Travel" target="_blank" class="s__writer__sns--button">

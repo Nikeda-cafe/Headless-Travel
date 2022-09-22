@@ -19,6 +19,9 @@
 
 <script>
 export default {
+    fetch(){
+        this.$store.commit('resetMenu')
+    },
     head(){
         return {
             title: '404'

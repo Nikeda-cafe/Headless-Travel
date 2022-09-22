@@ -69,8 +69,8 @@
                                     >制作者情報</nuxt-link>
                                 </li>
                                 <li class="w-full md:w-auto md:ml-5 border-b border-gray-300 md:hover:border-gray-800">
-                                    <a href="/information/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full md:text-gray-400  md:hover:text-gray-800"
-                                    >お知らせ</a>
+                                    <nuxt-link to="/information/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full md:text-gray-400  md:hover:text-gray-800"
+                                    >お知らせ</nuxt-link>
                                 </li>
                             </ul>
                         </nav>
