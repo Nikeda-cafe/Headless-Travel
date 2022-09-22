@@ -71,7 +71,6 @@
         <aside class="hidden md:block md:w-3/12">
             <LayoutSideNav />
         </aside>
-
     </div>
 </template>
 

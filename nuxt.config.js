@@ -66,7 +66,27 @@ export default {
     'nuxt-lazy-load',
     '@aceforth/nuxt-optimized-images',
     'vue-scrollto/nuxt',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    preset: 'default',
+    // ソース内のHTMLタグを有効にする
+    html: true,
+    // 段落の\nを<br>に変換する
+    breaks: true,
+    // URLのようなテキストをリンクに変換する
+    linkify: false,
+    /*
+      Nuxt上で$mdを使用できるようにする
+      runtime: https://github.com/nuxt-community/markdownit-module#using-md-to-render-markdown
+    */
+    runtime: true,
+    /*
+      add plugins
+      use: https://markdown-it.github.io/markdown-it/#MarkdownIt.use
+    */
+    use: []
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

@@ -1,9 +1,9 @@
 <template>
     <div>
         <header class="s__header w-full bg-white px-2 py-2 z-50 pb-4 md:py-8">
-            <div class="md:max-w-lg py-2 text-center text-lg font-bold text-gray-500">旅で人生を少し素敵に</div>
+            <div class="md:max-w-xl py-2 text-center text-lg font-bold text-gray-500">旅で人生を少し素敵に</div>
             <div class="mx-auto md:flex md:items-center flex">
-                <div class="w-1/2 md:w-1/6 md:flex mx-auto px-6 md:px-0 flex justify-between items-center h-16">
+                <div class="w-1/2 md:justify-around md:w-3/5 md:flex mx-auto px-6 md:px-0 flex justify-between items-center h-16">
                     <h1>
                         <nuxt-link
                             to="/"
@@ -13,7 +13,7 @@
                         </nuxt-link>
                     </h1>
                 </div>
-                <div class="flex justify-between items-center w-3/5 md:w-12/12">
+                <div class="flex justify-between items-center w-3/5 md:w-7/12">
                     <nuxt-link to="/favorite/">
                         <div class="texr-black ">
                             <div class="text-center leading-none">
@@ -67,10 +67,6 @@
                                 <li class="w-full md:w-auto md:ml-5 border-b border-gray-300 md:hover:border-gray-800">
                                     <nuxt-link to="/creater/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full md:text-gray-400  md:hover:text-gray-800"
                                     >制作者情報</nuxt-link>
-                                </li>
-                                <li class="w-full md:w-auto md:ml-5 border-b border-gray-300 md:hover:border-gray-800">
-                                    <nuxt-link to="/information/" class="text-black md:block inline-block md:py-0 py-5 px-5 md:px-0 w-full md:text-gray-400  md:hover:text-gray-800"
-                                    >お知らせ</nuxt-link>
                                 </li>
                             </ul>
                         </nav>
