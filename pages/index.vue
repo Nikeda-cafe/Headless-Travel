@@ -103,7 +103,7 @@
                     </div>
                 </section>
 
-                <section class="contact__section py-6 bg-gray-100 md:py-20">
+                <section class="contact__section py-6 mb-8 bg-gray-100 md:py-20">
                     <div class="w-11/12 md:w-8/12 m-auto ">
                         <IndexPageTitle eng="CONTACT" jap="お問い合わせ" />
                         <p class="text-xl">制作者への技術的な問い合わせやコンテンツ内容などの各種お問い合わせはこちらから。</p>
@@ -114,6 +114,24 @@
                                 </button>
                             </nuxt-link>
                         </div>
+                        <div class="text-right mr-4 my-5">
+                            <button class="text-lg md:text-2xl font-bold mt-4 pb-2 border-b-2 border-black ">
+                                <nuxt-link to="/creater/">制作者情報を見る</nuxt-link>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="information__section mb-12 md:py-20">
+                    <div class="w-11/12 md:w-8/12 m-auto">
+                        <IndexPageTitle eng="INFORMATION" jap="お知らせ" />
+                        <InformationList
+                            v-for="(item,index) in informationList"
+                            :key="index"
+                            :id="item.id"
+                            :title="item.title"
+                            :createdAt="item.createdAt"
+                            :emergency_flag="item.emergency_flag"
+                        />
                     </div>
                 </section>
             </div>
@@ -131,6 +149,7 @@ import CategoryCard from '../components/CategoryCard.vue';
 import NewsList from '../components/NewsList.vue';
 import IndexPageTitle from '../components/IndexPageTitle.vue';
 import LayoutSideNav from '../components/LayoutSideNav.vue';
+import InformationList from '../components/InformationList.vue';
 export default {
     // middleware: 'insertStoreMasterData',
     fetch(){
@@ -144,6 +163,7 @@ export default {
     data: function() {
         return {
             postList: this.$store.state.pickupPosts,
+            informationList: this.$store.state.informationList,
             famousArea: this.$store.state.areaInfoList.filter((v) => {return v.famous_flag === true}),
             famousgenre: this.$store.state.genreInfoList.filter((v) => {return v.famous_flag === true}),
             settingsSp:{
@@ -174,7 +194,7 @@ export default {
 
     },
 
-    components: { CategoryCard, NewsList, IndexPageTitle, LayoutSideNav, VueSlickCarousel, vMediaQuery}
+    components: { CategoryCard, NewsList, IndexPageTitle, LayoutSideNav, VueSlickCarousel, vMediaQuery, InformationList }
 }
 </script>
 

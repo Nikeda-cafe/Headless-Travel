@@ -2,7 +2,8 @@ export const state = () => ({
     isMenuActive: false,
     areaInfoList: [],
     genreInfoList: [],
-    pickupPosts: []
+    pickupPosts: [],
+    informationList: []
 })
 
 export const mutations = {
@@ -20,5 +21,8 @@ export const mutations = {
     },
     setPickupPosts(state, posts){
         state.pickupPosts = posts
+    },
+    setInformationList(state, informations){
+        state.informationList = informations
     }
 }
