@@ -22,5 +22,6 @@ Nuxt.js + Express.js + microCMS + Firebase + Herokuで開発したメディア�
 * その他
     - GitHub（バージョン管理、デプロイ）
     - drowio（ドキュメント作成）
+    - WSL2 (開発環境作成)
 ## 基盤構成ドキュメント
 ![](./drawio.svg)
