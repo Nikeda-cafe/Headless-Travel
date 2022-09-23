@@ -17,6 +17,7 @@
     "@aceforth/nuxt-optimized-images": "^1.4.0",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/date-fns": "^1.5.0",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/markdownit": "^2.0.0",
     "chart.js": "^2.9.4",
     "cheerio": "1.0.0-rc.10",

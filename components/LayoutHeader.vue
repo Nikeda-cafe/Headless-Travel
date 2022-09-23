@@ -95,14 +95,6 @@ export default {
             this.showModal = true
         }
     },
-    // async fetch() {
-    //     const { data } = await axios.get(
-    //     `https://api-test-in.microcms.io/api/v1/news?fields=id,title`,{
-    //         headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
-    //     });
-
-    //     this.viewHistory = data.contents
-    // },
 
     beforeRouteLeave(to,from,next){
         this.isOpen = false

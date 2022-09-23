@@ -60,8 +60,8 @@ export default {
     async asyncData({ query, $config, $axios, params }) {
         const page = params.p || '1'
         const limit = 3
-        const result = await $axios.$get(`${$config.apiUrl}/news/?limit=${limit}&offset=${(page - 1) * limit}`, {
-            headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+        const result = await $axios.$get(`${process.env.API_URL}/news/?limit=${limit}&offset=${(page - 1) * limit}`, {
+            headers: { "X-API-KEY": process.env.API_KEY },
         });
 
         return {

@@ -3,24 +3,24 @@ export default async function({ store }){
     store.commit("resetMenu");
 
     var {data} = await axios.get(
-    `https://api-test-in.microcms.io/api/v1/area`,{
-        headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+    `${process.env.API_URL}/area`,{
+        headers: { "X-API-KEY": process.env.API_KEY },
     })
     store.commit('setAreaList',data.contents)
 
 
     var {data} = await axios.get(
-    `https://api-test-in.microcms.io/api/v1/genre`,{
-        headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+    `${process.env.API_URL}/genre`,{
+        headers: { "X-API-KEY": process.env.API_KEY },
     });
     store.commit('setGenreList',data.contents)
 
     var {data} = await axios.get(
-    `https://api-test-in.microcms.io/api/v1/news?filters=pickup_flag[equals]true&limit=6`,{
-        headers: { "X-API-KEY": "691867be-4a35-4006-90c1-9b0856070900" },
+    `${process.env.API_URL}/news?filters=pickup_flag[equals]true&limit=6`,{
+        headers: { "X-API-KEY": process.env.API_KEY },
     });
     store.commit('setPickupPosts',data.contents)
 
-    var {data} = await axios.get(`https://localhost:3001/api/v1/information/?limit=3`);
+    var {data} = await axios.get(`${process.env.API_URL_EXPRESS}/information/?limit=3`);
     store.commit('setInformationList',data)
 }

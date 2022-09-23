@@ -19,7 +19,7 @@ export default {
     name: 'InformationList',
     props: {
         id: {
-            type: String,
+            type: Number,
             required: true
         },
         title: {
@@ -31,7 +31,7 @@ export default {
             required: true
         },
         emergency_flag: {
-            type: String
+            type: Number
         }
     }
 }

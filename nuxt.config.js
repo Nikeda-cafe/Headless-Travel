@@ -1,4 +1,5 @@
-const { API_KEY, API_URL } = process.env
+require('dotenv').config()
+const { API_KEY, API_URL, API_URL_EXPRESS } = process.env
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   ssr: false,
@@ -66,7 +67,8 @@ export default {
     'nuxt-lazy-load',
     '@aceforth/nuxt-optimized-images',
     'vue-scrollto/nuxt',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/dotenv'
   ],
   markdownit: {
     preset: 'default',
@@ -114,12 +116,10 @@ export default {
     optimizeImages: true
   },
 
-  publicRuntimeConfig: {
-    // apiUrl: API_URL,
-    apiUrl: 'https://api-test-in.microcms.io/api/v1'
-  },
-  privateRuntimeConfig: {
-    apiKey: '691867be-4a35-4006-90c1-9b0856070900',
+  env: {
+    API_KEY,
+    API_URL,
+    API_URL_EXPRESS
   },
   router: {
     extendRoutes (routes, resolve) {
