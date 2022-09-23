@@ -2,7 +2,7 @@
     <div class="text-center m-auto bg-gray-100 py-4">
         <PageTitle englishText="CONTACT" japaneseText="お問い合わせ" />
         <div class="w-full bg-gray-100">
-        <form class="flex w-11/12 max-w-xl space-x-3 m-auto mb-8" name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <form class="flex w-11/12 max-w-xl space-x-3 m-auto mb-8" name="contact" data-netlify="true" hidden @submit.prevent>
             <div class="w-full max-w-2xl px-5 py-10 m-auto bg-white rounded-lg shadow dark:bg-gray-800">
                 <div class="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
                     入力フォーム
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-span-2 text-right">
                         <button
-                            @click="submit"
+                            @click="handleSubmit"
                             class="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                         >
                             送信
@@ -77,20 +77,20 @@ export default {
             name: '',
             email: '',
             comment: '',
-            botfield: '',
+            // botfield: '',
         }
     },
     methods: {
-    async submit() {
+    async  handleSubmit() {
       const params = new FormData()
       //以下、ダミーフォームの各フォーム要素のnameと合わせる
       params.append('form-name', 'contact')
       params.append('name', this.name)
       params.append('email', this.email)
       params.append('comment', this.comment)
-      params.append('bot-field', this.botfield)
+    //   params.append('bot-field', this.botfield)
 
-      const response = await this.$axios.$post('/complete/',params)
+      const response = await this.$axios.$post('/',params)
     },
   },
     fetch({ store }) {
