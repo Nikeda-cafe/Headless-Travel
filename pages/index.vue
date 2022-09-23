@@ -144,7 +144,6 @@
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import vMediaQuery from 'v-media-query'
 import CategoryCard from '../components/CategoryCard.vue';
 import NewsList from '../components/NewsList.vue';
 import IndexPageTitle from '../components/IndexPageTitle.vue';
@@ -194,7 +193,7 @@ export default {
 
     },
 
-    components: { CategoryCard, NewsList, IndexPageTitle, LayoutSideNav, VueSlickCarousel, vMediaQuery, InformationList }
+    components: { CategoryCard, NewsList, IndexPageTitle, LayoutSideNav, VueSlickCarousel, InformationList }
 }
 </script>
 

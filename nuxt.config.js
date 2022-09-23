@@ -45,6 +45,7 @@ export default {
     '~/plugins/init.js',
     '~/plugins/v-mq',
     { src: '@/plugins/v-modal', ssr: false },
+    { src: '@/plugins/vee-validate'}
     // { src: '@/plugins/v-tippy', mode: 'client'},
   ],
 
@@ -98,8 +99,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vue-flag-icon'],
-    vendor: ['vue-awesome-swiper']
+    vendor: ['vue-awesome-swiper'],
+    transpile: ['vee-validate/dist/rules'],
   },
 //   loading: './components/Loading.vue',
   loading: {
