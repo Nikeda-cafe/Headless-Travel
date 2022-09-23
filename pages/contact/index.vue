@@ -1,5 +1,19 @@
 <template lang="">
-    <div class="text-center m-auto bg-gray-100 py-4">
+    <section v-if="finished" class="flex items-center h-full p-16 dark:bg-gray-900 dark:text-gray-100">
+		<div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+			<div class="max-w-md text-center">
+                <PageTitle englishText="COMPLETE" japaneseText="送信完了" />
+				<p class="text-2xl font-semibold md:text-3xl md:mt-16">お問い合わせありがとうございます。</p>
+				<p class="mt-4 mb-8 dark:text-gray-400"></p>
+				<nuxt-link
+                    rel="noopener noreferrer"
+                    to="/"
+                    class="px-8 py-3 font-semibold text-xl border-none bg-gray-200 rounded dark:bg-violet-400 dark:text-gray-900"
+                >トップへ戻る</nuxt-link>
+			</div>
+		</div>
+	</section>
+    <div v-else class="text-center m-auto bg-gray-100 py-4">
         <PageTitle englishText="CONTACT" japaneseText="お問い合わせ" />
         <div class="w-full bg-gray-100">
         <form class="flex w-11/12 max-w-xl space-x-3 m-auto mb-8" name="contact" data-netlify="true" hidden @submit.prevent>
@@ -78,6 +92,7 @@ export default {
             email: '',
             comment: '',
             // botfield: '',
+            finished: false
         }
     },
     methods: {
@@ -90,8 +105,8 @@ export default {
       params.append('comment', this.comment)
     //   params.append('bot-field', this.botfield)
 
-      const response = await this.$axios.$post(window.location.origin+'/complete/',params)
-      WritableStreamDefaultController.alert('送信完了しました！');
+      const response = await this.$axios.$post(window.location.origin,params)
+        this.finished = true
     },
   },
     fetch({ store }) {
