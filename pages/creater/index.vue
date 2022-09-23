@@ -17,7 +17,7 @@
                         </div>
                         <p class="text-gray-600 dark:text-white text-md">
                             <span class="mb-4">東京理科大学を卒業後、ITソリューション会社で物流、倉庫管理システムの開発に従事。</span><br>
-                            <span class="mb-4">その後、名古屋の大手Webベンチャー企業でフロントエンドエンジニアとしてNuxt.js、AWSを使いポータルサイト、メディアサイトの開発を経験。</span><br>
+                            <span class="mb-4">その後、名古屋のWebベンチャー企業でフロントエンドエンジニアとしてNuxt.js、AWSを使いポータルサイト、メディアサイトの開発を経験。</span><br>
                             <span class="mb-4">現在は東京の事業会社でPHPエンジニアとしてポータルサイトの開発をしています。</span><br>
                             <span class="mb-4">最近はExpress.jsにはまっております。</span>
                         </p>
