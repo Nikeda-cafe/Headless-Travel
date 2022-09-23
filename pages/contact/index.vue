@@ -90,10 +90,7 @@ export default {
       params.append('comment', this.comment)
       params.append('bot-field', this.botfield)
 
-      const response = await this.$axios.$post('/', params)
-      //実際はresponseを使って画面側にフィードバックさせるが、ここでは仮にconsoleに出力
-      window.alert('送信完了しました！')
-      console.log(response)
+      const response = await this.$axios.$post(params)
     },
   },
     fetch({ store }) {
