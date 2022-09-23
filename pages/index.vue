@@ -121,7 +121,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="information__section mb-12 md:py-20">
+                <section v-if="informationList !== undefined" class="information__section mb-12 md:py-20">
                     <div class="w-11/12 md:w-8/12 m-auto">
                         <IndexPageTitle eng="INFORMATION" jap="お知らせ" />
                         <InformationList

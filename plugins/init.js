@@ -21,6 +21,10 @@ export default async function({ store }){
     });
     store.commit('setPickupPosts',data.contents)
 
-    var {data} = await axios.get(`${process.env.API_URL_EXPRESS}/information/?limit=3`);
-    store.commit('setInformationList',data)
+    try{
+        var {data} = await axios.get(`${process.env.API_URL_EXPRESS}/information/?limit=3`)
+        store.commit('setInformationList',data)
+    }catch{
+        store.commit('setInformationList',undefined)
+    }
 }
