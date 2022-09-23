@@ -21,6 +21,7 @@
     "@nuxtjs/markdownit": "^2.0.0",
     "chart.js": "^2.9.4",
     "cheerio": "1.0.0-rc.10",
+    "core-js": "^2.6.12",
     "nuxt": "^2.15.8",
     "nuxt-lazy-load": "^1.2.9",
     "parse5-htmlparser2-tree-adapter": "^6.0.0",
