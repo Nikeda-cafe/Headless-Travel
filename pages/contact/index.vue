@@ -90,7 +90,8 @@ export default {
       params.append('comment', this.comment)
     //   params.append('bot-field', this.botfield)
 
-      const response = await this.$axios.$post('/',params)
+      const response = await this.$axios.$post(window.location.origin+'/complete/',params)
+      WritableStreamDefaultController.alert('送信完了しました！');
     },
   },
     fetch({ store }) {
