@@ -26,7 +26,7 @@ Nuxt.js + Express.js + microCMS + Netlify + AWSで開発したメディアサイ
 * クラウド環境
     - Netlify
     - AWS Lightsail
-    - AWS cloudfront
+    - AWS CloudFront
 * その他
     - GitHub（バージョン管理、デプロイ）
     - drawio（ドキュメント作成）
