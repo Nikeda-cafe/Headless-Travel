@@ -48,7 +48,7 @@ export default {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
-            margin-top: 15px;
+            margin-top: 35px;
         }
         > ul > li{
             margin-bottom: 10px;
@@ -75,7 +75,7 @@ export default {
     @media screen and (min-width: 640px){
         .information__article{
             h2{
-                margin-top: 30px;
+                margin-top: 50px;
             }
             > ul > li{
                 margin-bottom: 10px;
