@@ -31,7 +31,7 @@ export default {
         };
     },
     async asyncData({ params, $config, $axios }) {
-        const result = await $axios.$get(`https://localhost:3001/api/v1/information/?id=${params.id}`);
+        const result = await $axios.$get(`${process.env.API_URL_EXPRESS}/information/?id=${params.id}`);
         return {
             res: result[0],
         };
