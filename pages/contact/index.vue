@@ -17,7 +17,7 @@
         <PageTitle englishText="CONTACT" japaneseText="お問い合わせ" />
         <div class="w-full bg-gray-100">
         <ValidationObserver ref="myform">
-        <form class="flex w-11/12 max-w-xl space-x-3 m-auto mb-8" name="contact" data-netlify="true" hidden @submit.prevent="handleSubmit()">
+        <form class="flex w-11/12 max-w-xl space-x-3 m-auto mb-8" name="contact" hidden @submit.prevent="handleSubmit()">
             <div class="w-full max-w-2xl px-5 py-10 m-auto bg-white rounded-lg shadow dark:bg-gray-800">
                 <div class="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
                     入力フォーム
@@ -124,14 +124,10 @@ export default {
             }else{
                 this.submitFlag = true
             }
-            const params = new FormData()
-            params.append('form-name', 'contact')
-            params.append('name', this.name)
-            params.append('email', this.email)
-            params.append('comment', this.comment)
-            //   params.append('bot-field', this.botfield)
             if(this.submitFlag){
-                const response = await this.$axios.$post(window.location.origin,params)
+                const response = await this.$axios.$post(
+                    `${process.env.API_URL_EXPRESS}/sendmail/?name=${this.name}&email=${this.email}&comment=${this.comment}`
+                )
                 this.finished = true
             }
         },
