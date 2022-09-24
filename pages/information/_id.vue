@@ -42,8 +42,10 @@ export default {
     .information__article{
         h2{
             padding-left: 7px;
+            padding-bottom: 4px;
             border-left: 5px solid #333;
-            font-size: 18px;
+            border-bottom: 1px solid #333;
+            font-size: 20px;
             font-weight: bold;
             margin-bottom: 10px;
             margin-top: 35px;
@@ -74,6 +76,7 @@ export default {
         .information__article{
             h2{
                 margin-top: 50px;
+                font-size: 25px;
             }
             > ul > li{
                 margin-bottom: 10px;
