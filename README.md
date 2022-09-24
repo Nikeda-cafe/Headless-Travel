@@ -1,7 +1,12 @@
 # Headless Travel
 Nuxt.js + Express.js + microCMS + Netlify + AWSで開発したメディアサイトです。
+
+■URL  
 [https://headless-travel.site/](https://headless-travel.site/)
-[API用バックエンド管理システム](https://github.com/Nikeda-cafe/api-headless-travel)
+
+■API用バックエンド管理システム  
+[https://github.com/Nikeda-cafe/api-headless-travel](https://github.com/Nikeda-cafe/api-headless-travel)
+
 
 ## 作成の目的
 * API連携を前提としたフロントエンド環境での開発技術の向上
