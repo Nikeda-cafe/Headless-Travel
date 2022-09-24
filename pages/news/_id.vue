@@ -8,21 +8,29 @@
                 <div class="flex flex-wrap justify-starts items-center mt-4 relative">
                     <TagIcon bgBlueColor="true">{{res.area.name}}</TagIcon>
                     <TagIcon v-for="(item,index) in res.genre">{{item.genre_name}}</TagIcon>
-                    <span
+                    <svg
                         v-if="favoFlag"
-                        class="material-icons absolute right-5 top-0.5 text-3xl md:text-5xl cursor-pointer"
-                        :class="favoColor"
+                        class="absolute right-5 top-2 text-3xl md:text-5xl cursor-pointer"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="30px"
+                        viewBox="0 0 24 24"
+                        width="30px"
+                        fill="lightpink"
+                        style="&#10; color: brown;&#10;"
                         @click="deleteFavo(res.id)"
-                    >{{getFavoIcon}}
-                    </span>
-                    <span
+                    ><path d="M0 0h24v24H0z" fill="none"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <svg
                         v-else
-                        class="material-icons absolute right-5 top-0.5 text-3xl md:text-5xl cursor-pointer"
-                        :class="favoColor"
+                        class="absolute right-5 top-2 text-3xl md:text-5xl cursor-pointer"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="30px"
+                        viewBox="0 0 24 24"
+                        width="30px"
+                        fill="#000000"
                         @click="insertFavo(res.id,res.title,res.thumbnail.url,$dateFns.format(new Date(), 'yyyy/MM/dd'))"
-                    >{{getFavoIcon}}
-                    </span>
-
+                    ><path d="M0 0h24v24H0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+                    </svg>
                 </div>
                 <p class="my-2">公開日：{{$dateFns.format(new Date(res.publishedAt), 'yyyy/MM/dd')}}</p>
                 <h1 class="lg:text-4xl text-2xl">{{res.title}}</h1>
@@ -50,18 +58,14 @@
                 <div v-if="favoFlag" class="p-4 rounded text-2xl bg-red-300 text-white py-8">
                     <p>{{modalText}}</p>
                     <div class="text-center mt-4 flex items-center justify-center">
-                        <span class="material-icons">
-                            favorite
-                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 0 24 24" width="28px" fill="#fff" style="&#10;    color: brown;&#10;"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                         <span class="mb-2">×{{getCountFavo}}</span>
                     </div>
                 </div>
                 <div v-else class="p-4 rounded text-2xl py-8 bg-gray-400 text-white">
                     <p>{{modalText}}</p>
                     <div class="text-center mt-4 flex items-center justify-center">
-                        <span class="material-icons">
-                            favorite_border
-                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 0 24 24" width="28px" fill="#fff"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
                         <span class="mb-2">×{{getCountFavo}}</span>
                     </div>
                 </div>
