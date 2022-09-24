@@ -1,5 +1,5 @@
 ## 概要
-Nuxt.js + Express.js + microCMS + Netlify + AWSで開発したメディアサイトです。
+Nuxt.js + Express.js + microCMS + Firebase + AWSで開発したメディアサイトです。
 
 ■URL  
 [https://headless-travel.site/](https://headless-travel.site/)
@@ -24,7 +24,7 @@ Nuxt.js + Express.js + microCMS + Netlify + AWSで開発したメディアサイ
     - MariaDB
     - Nginx
 * クラウド環境
-    - Netlify
+    - Firebase Hosting
     - AWS Lightsail
     - AWS CloudFront
 * その他
