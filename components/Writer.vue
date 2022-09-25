@@ -56,7 +56,7 @@ export default {
         .s__writer{
             &__sns--button{
                 max-width: 100%;
-                margin-left: 3.5vw;
+                margin-left: 3vw;
             }
         }
     }
