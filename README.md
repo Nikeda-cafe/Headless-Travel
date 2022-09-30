@@ -21,6 +21,7 @@ Nuxt.js + Express.js + microCMS + Firebase + AWSで開発したメディアサ�
 * バッグエンド
     - microCMS
     - Express.js
+    - webpack
     - MariaDB
     - Nginx
 * クラウド環境
