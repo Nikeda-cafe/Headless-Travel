@@ -1,6 +1,6 @@
 <template>
-    <div class="mt-8 mb-8 w-11/12 lg:mt-24 md:flex md:justify-between md:w-11/12">
-        <article class="md:w-9/12 ">
+    <div class="my-8 w-11/12 m-auto md:m-0 lg:mt-24 md:flex md:justify-between md:w-11/12">
+        <article class="md:w-9/12">
             <section class="md:w-9/12 md:m-auto">
                 <PageTitle englishText="INFORMATION" japaneseText="お知らせ情報" />
                 <div class="md:mt-16">
