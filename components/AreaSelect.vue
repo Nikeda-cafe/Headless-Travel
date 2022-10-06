@@ -1,8 +1,16 @@
 <template>
     <div>
-        <ul v-show="areaShow === false">
-            <li v-for="(item,index) in list" :key="item.prefCode" @click="getAreaByPrefectureId(item.prefCode)">{{item.prefName}}</li>
-        </ul>
+        <div v-show="areaShow === false" class="w-11/12 m-auto my-5">
+            <p class="mb-4 text-2xl">都道府県を選択してください</p>
+            <ul class="flex flex-wrap">
+                <li
+                    v-for="(item,index) in list"
+                    :key="item.prefCode"
+                    @click="getAreaByPrefectureId(item.prefCode)"
+                    class="mb-3 mr-3 py-1 px-2 bg-blue-200 rounded-lg "
+                >{{item.prefName}}</li>
+            </ul>
+        </div>
         <transition name="area">
             <SlideArea ref="child" v-show="areaShow" @parent-back="areaShow = !areaShow" />
         </transition>
