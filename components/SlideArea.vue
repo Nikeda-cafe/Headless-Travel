@@ -43,8 +43,8 @@ export default {
                     "Content-Type": "application/x-www-form-urlencoded",
                 }
             }).then((res) => {
-                this.lady = true
                 this.areas = res.data.result
+                this.lady = true
             });
         },
         backEvent(){

@@ -41,12 +41,13 @@ export default {
 </script>
 
 <style lang="scss">
+    $black: #333;
     .information__article{
         h2{
             padding-left: 7px;
             padding-bottom: 4px;
-            border-left: 5px solid #333;
-            border-bottom: 1px solid #333;
+            border-left: 5px solid $black;
+            border-bottom: 1px solid $black;
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 10px;
