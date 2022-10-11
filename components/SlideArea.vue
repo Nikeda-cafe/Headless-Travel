@@ -3,13 +3,16 @@
         <div v-show="lady === false" class="loader"></div>
         <div v-show="lady" class="w-11/12 m-auto my-5">
             <div class="mb-4">
-                <span @click="backEvent" class="mb-4 text-lg px-2 py-1 bg-gray-200 rounded-lg">戻る</span>
+                <span
+                    @click="backEvent"
+                    class="mb-4 text-lg px-2 py-1 bg-gray-200 rounded-lg cursor-pointer"
+                >戻る</span>
             </div>
             <ul class="flex flex-wrap">
                 <li
                     v-for="(item,index) in areas"
                     :key="item.cityCode"
-                    class="mb-3 mr-3 py-1 px-2 bg-red-200 rounded-lg"
+                    class="mb-3 mr-3 py-1 px-2 bg-red-200 rounded-lg cursor-pointer"
                 >{{item.cityName}}</li>
                 <!-- <div>svds</div> -->
             </ul>

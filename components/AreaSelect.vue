@@ -7,7 +7,7 @@
                     v-for="(item,index) in list"
                     :key="item.prefCode"
                     @click="getAreaByPrefectureId(item.prefCode)"
-                    class="mb-3 mr-3 py-1 px-2 bg-blue-200 rounded-lg "
+                    class="mb-3 mr-3 py-1 px-2 bg-blue-200 rounded-lg cursor-pointer"
                 >{{item.prefName}}</li>
             </ul>
         </div>
