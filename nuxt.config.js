@@ -54,6 +54,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/date-fns',
+      '@nuxtjs/vuetify'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -64,7 +65,8 @@ export default {
     '@aceforth/nuxt-optimized-images',
     'vue-scrollto/nuxt',
     '@nuxtjs/markdownit',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // '@nuxtjs/auth'
   ],
   markdownit: {
     preset: 'default',
@@ -132,4 +134,17 @@ export default {
       })
     }
   },
+  auth: {
+    strategies: {
+        local: {
+            endpoints: {
+                login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
+                logout: { url: '/api/auth/logout', method: 'post' },
+                user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
+            },
+            // tokenRequired: true,
+            // tokenType: 'bearer'
+        }
+    }
+  }
 }

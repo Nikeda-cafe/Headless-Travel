@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <li class="mb-8 news__nav--li md:mb-16">
         <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
             <nuxt-link :to="`/news/${id}/`" class="w-full block h-full">
