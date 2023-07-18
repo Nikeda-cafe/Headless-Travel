@@ -1,5 +1,6 @@
 <template>
     <div class="">
+        <nuxt-link to="Samples">dbfd</nuxt-link>
         <section class="md:w-full md:m-auto md:bg-gray-100">
             <div class="mv mv__wrapper md:m-auto bg-gray-200">
                 <picture class="">
@@ -159,7 +160,7 @@ export default {
         titleTemplate: null
     },
     name: "IndexPage",
-    data: function() {
+    data (){
         return {
             postList: this.$store.state.pickupPosts,
             informationList: this.$store.state.informationList,

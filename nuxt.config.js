@@ -2,8 +2,8 @@ require('dotenv').config()
 const { API_KEY, API_URL, API_URL_EXPRESS } = process.env
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  ssr: false,
-    // ssr: 'true',
+  // ssr: false,
+    ssr: 'true',
     // target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -66,7 +66,8 @@ export default {
     'vue-scrollto/nuxt',
     '@nuxtjs/markdownit',
     '@nuxtjs/dotenv',
-    // '@nuxtjs/auth'
+    // '@nuxtjs/auth',
+    'bootstrap-vue/nuxt',
   ],
   markdownit: {
     preset: 'default',

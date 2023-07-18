@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import TagIcon from '/components/TagIcon.vue';
+import TagIcon from './TagIcon.vue';
 export default {
     name: 'NewsList',
     props: {
