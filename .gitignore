@@ -90,3 +90,4 @@ sw.*
 *.swp
 
 firebase.config
+firebase.json
